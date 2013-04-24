@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+
+        >
+
+    <LinearLayout
+            android:layout_alignParentTop="true"
+            android:layout_height="fill_parent"
+            android:layout_width="fill_parent"
+            android:background="@color/candywhite"
+>
+
+
+        <TextView
+                android:autoLink="web"
+                android:layout_height="fill_parent"
+                android:layout_width="fill_parent"
+                android:id="@+id/text"
+                android:textColor="@color/avocado"
+                android:padding="15dip"
+                android:textSize="20dip"
+                android:maxLines = "15"
+                android:scrollbars = "vertical"
+
+
+                android:singleLine="false"
+
+                >
+        </TextView>
+    </LinearLayout>
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:textColor="#000000"
+                  android:weightSum="2"
+                  android:orientation="vertical"
+                  android:layout_marginBottom="10dp"
+                  android:layout_alignParentBottom="true"
+                  android:layout_centerHorizontal="true"
+                  android:layout_centerInParent="true"
+                  android:layout_marginLeft="10dp"
+            >
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:weightSum="2"
+                android:layout_weight="1"
+
+                >
+
+
+            <Button android:id="@+id/b1"
+                    android:textColor="@color/avocado"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:padding="5dip"
+                    android:layout_margin="10dip"
+                    android:layout_height="fill_parent"
+                    android:layout_width="0dip"
+                    android:textSize="20sp"
+                    android:textColorHighlight="@color/grey"
+                    android:onClick="disClick"
+                    android:layout_weight="1"
+                    />
+
+            <Button android:id="@+id/b2"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:textColor="@color/avocado"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:padding="5dip"
+                    android:layout_margin="10dip"
+                    android:layout_height="fill_parent"
+                    android:layout_width="0dip"
+                    android:textSize="20sp"
+                    android:onClick="disClick"
+                    android:layout_weight="1"
+                    ></Button>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_height="fill_parent"
+                android:layout_width="fill_parent"
+                android:weightSum="2"
+                android:layout_weight="1"
+                >
+
+
+            <Button android:id="@+id/b3"
+                    android:textColor="@color/avocado"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:singleLine="true"
+                    android:padding="5dip"
+                    android:layout_height="fill_parent"
+                    android:layout_width="0dp"
+                    android:ellipsize="marquee"
+                    android:textSize="20sp"
+                    android:onClick="disClick"
+                    android:layout_margin="10dip"
+                    android:layout_weight="1"
+                    />
+
+
+            <Button android:id="@+id/b4"
+                    android:textColor="@color/avocado"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:padding="5dip"
+                    android:textSize="20sp"
+                    android:layout_height="fill_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:onClick="disClick"
+                    android:layout_margin="10dip"
+                    />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
+
+        <!--<LinearLayout-->
+        <!--android:orientation="vertical"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@drawable/round_corners"-->
+        <!--android:layout_weight="1"-->
+        <!--android:layout_margin="5dip"-->
+        <!--android:id="@+id/dis4"-->
+        <!--android:onClick="disClick"-->
+        <!-->-->
+        <!--<TextView-->
+
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="blah blah blah"-->
+        <!--android:paddingTop="20dip"-->
+        <!--android:paddingBottom="20dip"-->
+        <!--android:paddingRight="4dip"-->
+        <!--android:paddingLeft="4dip"-->
+        <!--android:textColor="#000000"-->
+        <!--android:textSize="20sp"-->

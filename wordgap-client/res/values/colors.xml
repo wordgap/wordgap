@@ -1,0 +1,14 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/susanne.wordgap">
+
+    <color name="bgcolor">#A6C73A</color>
+    <color name="grey">#ffa5b4a5</color>
+    <color name="mintcream">#F5FFFA</color>
+    <color name="mistygreen">#C0E643</color>
+    <color name="salmon">#FA8072</color>
+    <color name="lightcyan">#E0FFFF</color>
+    <color name="candywhite">#F7F2F7</color>
+    <color name="orangelit">#FF7308</color>
+    <color name="apple">#BD2B41</color>
+    <color name="avocado">#314142</color>
+    <color name="darkseagreen">#E0FFFF</color>
+</resources>

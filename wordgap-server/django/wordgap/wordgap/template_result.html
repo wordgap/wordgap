@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML Basic 1.1//EN"
+    "http://www.w3.org/TR/xhtml-basic/xhtml-basic11.dtd">
+<html>
+<head>
+<title>Ergebnis</title>
+<meta name="viewport" content="user-scalable=no, width=device-width" />
+<style type="text/css">
+
+body {
+    background-color: mintcream;
+    color: rgb(50, 50, 50);
+    font-family: Helvetica;
+    font-size: 20px;
+    margin: 0;
+    padding: 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+</style>
+</head>
+
+<body>
+<p>
+Du hast <em>  {{ right }}  </em> Antworten von insgesamt {{ gesamt }} Versuchen richtig beantwortet!
+</p>
+<p>
+Das sind <em> {{percent}} </em> Prozent!
+</p>
+<p>
+Du hast {{duration}} Zeit benötigt.
+</p>
+{% if markedWords %}
+Gemerkte Wörter:
+{% for w in markedWords %} 
+<li>{{w}}</li>
+{% endfor %} 
+
+{% endif %}
+</ul>
+</body>
+</html>
+

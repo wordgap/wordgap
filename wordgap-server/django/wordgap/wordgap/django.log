@@ -1,0 +1,1336 @@
+Internal Server Error: /ex/0/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 72, in showSentence
+    curChoices = [word] + distractorwords[:3]
+NameError: global name 'word' is not defined
+Internal Server Error: /ex/0/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 77, in showSentence
+    return render_to_response('template_sentence.html', locals())
+  File "/usr/local/lib/python2.6/dist-packages/django/shortcuts/__init__.py", line 20, in render_to_response
+    return HttpResponse(loader.render_to_string(*args, **kwargs), **httpresponse_kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 169, in render_to_string
+    t = get_template(template_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 145, in get_template
+    template, origin = find_template(template_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 134, in find_template
+    source, display_name = loader(name, dirs)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 42, in __call__
+    return self.load_template(template_name, template_dirs)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 48, in load_template
+    template = get_template_from_string(source, origin, template_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 156, in get_template_from_string
+    return Template(source, origin, name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/base.py", line 125, in __init__
+    self.nodelist = compile_string(template_string, origin)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/base.py", line 153, in compile_string
+    return parser.parse()
+  File "/usr/local/lib/python2.6/dist-packages/django/template/base.py", line 246, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/base.py", line 346, in compile_filter
+    return FilterExpression(token, self)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/base.py", line 563, in __init__
+    "from '%s'" % (token[upto:], token))
+TemplateSyntaxError: Could not parse the remainder: ' | length' from 'sents | length'
+Internal Server Error: /ex/0/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 77, in showSentence
+    return render_to_response('template_sentence.html', locals())
+  File "/usr/local/lib/python2.6/dist-packages/django/shortcuts/__init__.py", line 20, in render_to_response
+    return HttpResponse(loader.render_to_string(*args, **kwargs), **httpresponse_kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 169, in render_to_string
+    t = get_template(template_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 145, in get_template
+    template, origin = find_template(template_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 134, in find_template
+    source, display_name = loader(name, dirs)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 42, in __call__
+    return self.load_template(template_name, template_dirs)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 48, in load_template
+    template = get_template_from_string(source, origin, template_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 156, in get_template_from_string
+    return Template(source, origin, name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/base.py", line 125, in __init__
+    self.nodelist = compile_string(template_string, origin)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/base.py", line 153, in compile_string
+    return parser.parse()
+  File "/usr/local/lib/python2.6/dist-packages/django/template/base.py", line 246, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/base.py", line 346, in compile_filter
+    return FilterExpression(token, self)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/base.py", line 563, in __init__
+    "from '%s'" % (token[upto:], token))
+TemplateSyntaxError: Could not parse the remainder: ' | length' from 'sents | length'
+Internal Server Error: /ex/0/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 77, in showSentence
+    return render_to_response('template_sentence.html', locals())
+  File "/usr/local/lib/python2.6/dist-packages/django/shortcuts/__init__.py", line 20, in render_to_response
+    return HttpResponse(loader.render_to_string(*args, **kwargs), **httpresponse_kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 169, in render_to_string
+    t = get_template(template_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 145, in get_template
+    template, origin = find_template(template_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 134, in find_template
+    source, display_name = loader(name, dirs)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 42, in __call__
+    return self.load_template(template_name, template_dirs)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 48, in load_template
+    template = get_template_from_string(source, origin, template_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 156, in get_template_from_string
+    return Template(source, origin, name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/base.py", line 125, in __init__
+    self.nodelist = compile_string(template_string, origin)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/base.py", line 153, in compile_string
+    return parser.parse()
+  File "/usr/local/lib/python2.6/dist-packages/django/template/base.py", line 265, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/base.py", line 321, in invalid_block_tag
+    raise self.error(token, "Invalid block tag: '%s'" % command)
+TemplateSyntaxError: Invalid block tag: 'else'
+Internal Server Error: /ex/0/0/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 32, in showSentence
+    sents = ex.get("sentences")
+UnboundLocalError: local variable 'ex' referenced before assignment
+Internal Server Error: /ex/0/0/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 40, in showSentence
+    solution = curChoices.index(curWord)
+UnboundLocalError: local variable 'curChoices' referenced before assignment
+Not Found: /ex/0/0/0
+Not Found: /ex/0/1/3
+Internal Server Error: /ex/0/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 80, in showSentence
+    return render_to_response('template_sentence.html', locals())
+  File "/usr/local/lib/python2.6/dist-packages/django/shortcuts/__init__.py", line 20, in render_to_response
+    return HttpResponse(loader.render_to_string(*args, **kwargs), **httpresponse_kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 169, in render_to_string
+    t = get_template(template_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 145, in get_template
+    template, origin = find_template(template_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 134, in find_template
+    source, display_name = loader(name, dirs)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 42, in __call__
+    return self.load_template(template_name, template_dirs)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 48, in load_template
+    template = get_template_from_string(source, origin, template_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 156, in get_template_from_string
+    return Template(source, origin, name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/base.py", line 125, in __init__
+    self.nodelist = compile_string(template_string, origin)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/base.py", line 153, in compile_string
+    return parser.parse()
+  File "/usr/local/lib/python2.6/dist-packages/django/template/base.py", line 246, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/base.py", line 346, in compile_filter
+    return FilterExpression(token, self)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/base.py", line 558, in __init__
+    self.args_check(filter_name, filter_func, args)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/base.py", line 627, in args_check
+    (name, len(nondefs), plen))
+TemplateSyntaxError: add requires 1 arguments, 0 provided
+Internal Server Error: /ex/0/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 80, in showSentence
+    return render_to_response('template_sentence.html', locals())
+  File "/usr/local/lib/python2.6/dist-packages/django/shortcuts/__init__.py", line 20, in render_to_response
+    return HttpResponse(loader.render_to_string(*args, **kwargs), **httpresponse_kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 169, in render_to_string
+    t = get_template(template_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 145, in get_template
+    template, origin = find_template(template_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 134, in find_template
+    source, display_name = loader(name, dirs)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 42, in __call__
+    return self.load_template(template_name, template_dirs)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 48, in load_template
+    template = get_template_from_string(source, origin, template_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 156, in get_template_from_string
+    return Template(source, origin, name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/base.py", line 125, in __init__
+    self.nodelist = compile_string(template_string, origin)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/base.py", line 153, in compile_string
+    return parser.parse()
+  File "/usr/local/lib/python2.6/dist-packages/django/template/base.py", line 246, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/base.py", line 346, in compile_filter
+    return FilterExpression(token, self)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/base.py", line 558, in __init__
+    self.args_check(filter_name, filter_func, args)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/base.py", line 627, in args_check
+    (name, len(nondefs), plen))
+TemplateSyntaxError: add requires 1 arguments, 0 provided
+Not Found: /ex/1/1/0
+Internal Server Error: /ex/0/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 35, in showSentence
+    curWord = request.session["curWord"]
+  File "/usr/local/lib/python2.6/dist-packages/django/contrib/sessions/backends/base.py", line 39, in __getitem__
+    return self._session[key]
+KeyError: 'curWord'
+Not Found: /
+Not Found: /
+Not Found: /0
+Internal Server Error: /ex/0/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 35, in showSentence
+    curWord = request.session["curWord"]
+  File "/usr/local/lib/python2.6/dist-packages/django/contrib/sessions/backends/base.py", line 39, in __getitem__
+    return self._session[key]
+KeyError: 'curWord'
+Internal Server Error: /ex/0/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 35, in showSentence
+    curWord = request.session["curWord"]
+  File "/usr/local/lib/python2.6/dist-packages/django/contrib/sessions/backends/base.py", line 39, in __getitem__
+    return self._session[key]
+KeyError: 'curWord'
+Internal Server Error: /ex/0/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 35, in showSentence
+    curWord = request.session["curWord"]
+  File "/usr/local/lib/python2.6/dist-packages/django/contrib/sessions/backends/base.py", line 39, in __getitem__
+    return self._session[key]
+KeyError: 'curWord'
+Internal Server Error: /ex/0/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 35, in showSentence
+    curWord = request.session["curWord"]
+  File "/usr/local/lib/python2.6/dist-packages/django/contrib/sessions/backends/base.py", line 39, in __getitem__
+    return self._session[key]
+KeyError: 'curWord'
+Internal Server Error: /ex/0/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 35, in showSentence
+    curWord = request.session["curWord"]
+  File "/usr/local/lib/python2.6/dist-packages/django/contrib/sessions/backends/base.py", line 39, in __getitem__
+    return self._session[key]
+KeyError: 'curWord'
+Not Found: /ex/0/0/
+Not Found: /ex/0/0/2/
+Not Found: /ex/1/0/2/2/merken
+Internal Server Error: /ex/1/0/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 40, in showSentence
+    curWord = request.session["curWord"]
+  File "/usr/local/lib/python2.6/dist-packages/django/contrib/sessions/backends/base.py", line 39, in __getitem__
+    return self._session[key]
+KeyError: 'curWord'
+Not Found: /ex/3/merken
+Internal Server Error: /ex/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 101, in get_response
+    request.path_info)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 298, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 328, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 323, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/urls.py", line 3, in <module>
+    from wordgap.views import *
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 69
+     return render_to_response('template_sentence.html', locals())
+          ^
+ SyntaxError: invalid syntax
+Not Found: /ex/6/merken
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Internal Server Error: /admin/doc/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/django/contrib/admin/views/decorators.py", line 16, in _checklogin
+    return view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/django/contrib/admindocs/views.py", line 30, in doc_index
+    return missing_docutils_page(request)
+  File "/usr/local/lib/python2.6/dist-packages/django/contrib/admindocs/views.py", line 304, in missing_docutils_page
+    return render_to_response('admin_doc/missing_docutils.html')
+  File "/usr/local/lib/python2.6/dist-packages/django/shortcuts/__init__.py", line 20, in render_to_response
+    return HttpResponse(loader.render_to_string(*args, **kwargs), **httpresponse_kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 169, in render_to_string
+    t = get_template(template_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 145, in get_template
+    template, origin = find_template(template_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 138, in find_template
+    raise TemplateDoesNotExist(name)
+TemplateDoesNotExist: admin_doc/missing_docutils.html
+Not Found: /admin/sessions/
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /ex/4/merken
+Not Found: /ex/4/merken
+Internal Server Error: /ex
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 89, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.6/dist-packages/django/middleware/common.py", line 67, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 531, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 420, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 298, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 328, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 323, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/urls.py", line 14, in <module>
+    (r"^ex/(?P<sentenceNo>\d+)/(?P<choice>\d{1})/$", showSentence),
+TypeError: 'tuple' object is not callable
+Internal Server Error: /ex/1/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 101, in get_response
+    request.path_info)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 298, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 328, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 323, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/urls.py", line 14, in <module>
+    (r"^ex/(?P<sentenceNo>\d+)/(?P<choice>\d{1})/$", showSentence),
+TypeError: 'tuple' object is not callable
+Not Found: /ex/2/merken/3
+Not Found: /ex/2/merken/1
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /ex/2/merken/3
+Not Found: /ex/
+Not Found: /ex/2/
+Not Found: /ex/2/
+Not Found: /ex/result/
+Not Found: /ex/1/3/1/
+Internal Server Error: /ex/result/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 121, in result
+    std, rest = divmod(sek, 3600)
+UnboundLocalError: local variable 'sek' referenced before assignment
+Internal Server Error: /ex/result/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 123, in result
+    print '%s:%s:%s' % (stunden, minuten, sek)
+NameError: global name 'stunden' is not defined
+Internal Server Error: /testex
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 89, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.6/dist-packages/django/middleware/common.py", line 67, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 531, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 420, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 298, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 328, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 323, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/urls.py", line 19, in <module>
+    (r"^ex/$", prepex),
+NameError: name 'prepex' is not defined
+Internal Server Error: /testex/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 101, in get_response
+    request.path_info)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 298, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 328, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 323, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/urls.py", line 3, in <module>
+    from wordgap.views import *
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 32
+     def testex(request):
+       ^
+ IndentationError: expected an indented block
+Internal Server Error: /testex/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 101, in get_response
+    request.path_info)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 298, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 328, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 323, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/urls.py", line 3, in <module>
+    from wordgap.views import *
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 10, in <module>
+    import wordex
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/wordex.py", line 1, in <module>
+    import tools
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/tools.py", line 10, in <module>
+    import en
+ImportError: No module named en
+Internal Server Error: /testex/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 101, in get_response
+    request.path_info)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 298, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 328, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 323, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/urls.py", line 3, in <module>
+    from wordgap.views import *
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 10, in <module>
+    import wordex
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/wordex.py", line 1, in <module>
+    import tools
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/tools.py", line 10, in <module>
+    import en
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/en/__init__.py", line 28, in <module>
+    import parser
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/en/parser/__init__.py", line 172, in <module>
+    from nltk_lite.parse import chunk as nltk_chunk
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/en/parser/nltk_lite/parse/__init__.py", line 154, in <module>
+    from tree import *
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/en/parser/nltk_lite/parse/tree.py", line 15, in <module>
+    from en.parser.nltk_lite import tokenize
+ImportError: No module named en.parser.nltk_lite
+Internal Server Error: /testex/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 101, in get_response
+    request.path_info)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 298, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 328, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 323, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/urls.py", line 19, in <module>
+    (r"^ex/$", createex),
+NameError: name 'createex' is not defined
+Internal Server Error: /testex/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 36, in testex
+    text = tools.load_text("data/prince.txt")
+NameError: global name 'tools' is not defined
+Internal Server Error: /testex/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 37, in testex
+    text = tools.load_text("data/prince.txt")
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/tools.py", line 39, in load_text
+    fh.close()
+AttributeError: 'NoneType' object has no attribute 'close'
+Internal Server Error: /testex/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 38, in testex
+    ex = wordex.create_ex(text, pos='v', fast=True)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/wordex.py", line 11, in create_ex
+    tagged = tools.tag(sents)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/tools.py", line 91, in tag
+    fh.close()
+UnboundLocalError: local variable 'fh' referenced before assignment
+Internal Server Error: /testex/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 38, in testex
+    ex = wordex.create_ex(text, pos='v', fast=True)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/wordex.py", line 11, in create_ex
+    tagged = tools.tag(sents)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/tools.py", line 92, in tag
+    fh.close()
+AttributeError: 'NoneType' object has no attribute 'close'
+Internal Server Error: /testex/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 38, in testex
+    ex = wordex.create_ex(text, pos='v', fast=True)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/wordex.py", line 46, in create_ex
+    s = re.sub(r, "", s)
+  File "/usr/lib/python2.6/re.py", line 151, in sub
+    return _compile(pattern, 0).sub(repl, string, count)
+TypeError: expected string or buffer
+Not Found: /img/python-powered-w-70x28.png
+Not Found: /img/djangoproject120x25.gif
+Not Found: /ex/
+Not Found: /img/python-powered-w-70x28.png
+Not Found: /img/djangoproject120x25.gif
+Internal Server Error: /appex/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 18, in get_json
+    return HttpResponse(simplejson.dumps(to_json), mimetype='application/json')
+NameError: global name 'to_json' is not defined
+Not Found: /testex/href=
+Not Found: /testex/img/djangoproject120x25.gif
+Not Found: /testex/href=
+Not Found: /testex/img/djangoproject120x25.gif
+Not Found: /testex/img/python-powered-w-70x28.png
+Not Found: /testex/img/djangoproject120x25.gif
+Not Found: /testex/img/python-powered-w-70x28.png
+Not Found: /testex/img/djangoproject120x25.gif
+Not Found: /testex/img/python-powered-w-70x28.png
+Not Found: /testex/img/djangoproject120x25.gif
+Not Found: /testex/python-powered-w-70x28.png
+Not Found: /testex/djangoproject120x25.gif
+Not Found: /testex/python-powered-w-70x28.png
+Not Found: /testex/djangoproject120x25.gif
+Not Found: /testex/img/python-powered-w-70x28.png
+Not Found: /testex/img/djangoproject120x25.gif
+Not Found: /testex/wordgap/static/img/python-powered-w-70x28.png
+Not Found: /testex/img/djangoproject120x25.gif
+Not Found: /testex/wordgap/static/img/python-powered-w-70x28.png
+Not Found: /testex/static/djangoproject120x25.gif
+Internal Server Error: /testex/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 101, in get_response
+    request.path_info)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 298, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 328, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 323, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/urls.py", line 41, in <module>
+    (r'^img/(?P<path>.*)$', 'django.views.static.serve',  {'document_root': settings.MEDIA_ROOT}),
+NameError: name 'settings' is not defined
+Not Found: /testex/python-powered-w-70x28.png
+Not Found: /testex/djangoproject120x25.gif
+Not Found: /testex/python-powered-w-70x28.png
+Not Found: /testex/djangoproject120x25.gif
+Not Found: /testex/python-powered-w-70x28.png
+Not Found: /testex/python-powered-w-70x28.png
+Not Found: /testex/djangoproject120x25.gif
+Not Found: /testex/python-powered-w-70x28.png
+Not Found: /testex/djangoproject120x25.gif
+Not Found: /testex/python-powered-w-70x28.png
+Not Found: /testex/python-powered-w-70x28.png
+Not Found: /testex/djangoproject120x25.gif
+Not Found: /testex/python-powered-w-70x28.png
+Not Found: /testex/djangoproject120x25.gif
+Not Found: /testex/img/python-powered-w-70x28.png
+Not Found: /testex/djangoproject120x25.gif
+Not Found: /testex/img/python-powered-w-70x28.png
+Not Found: /testex/djangoproject120x25.gif
+Internal Server Error: /testex/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 101, in get_response
+    request.path_info)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 298, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 328, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 323, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/urls.py", line 40, in <module>
+    url(r'^admin/', include(admin.site.urls)),
+  File "/usr/local/lib/python2.6/dist-packages/django/contrib/admin/sites.py", line 250, in urls
+    return self.get_urls(), self.app_name, self.name
+  File "/usr/local/lib/python2.6/dist-packages/django/contrib/admin/sites.py", line 209, in get_urls
+    self.check_dependencies()
+  File "/usr/local/lib/python2.6/dist-packages/django/contrib/admin/sites.py", line 163, in check_dependencies
+    raise ImproperlyConfigured("Put 'django.contrib.auth.context_processors.auth' "
+ImproperlyConfigured: Put 'django.contrib.auth.context_processors.auth' in your TEMPLATE_CONTEXT_PROCESSORS setting in order to use the admin application.
+Not Found: /testex/img/python-powered-w-70x28.png
+Not Found: /testex/djangoproject120x25.gif
+Internal Server Error: /testex/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 57, in testex
+    return render_to_response("templates/template_start.html")
+  File "/usr/local/lib/python2.6/dist-packages/django/shortcuts/__init__.py", line 20, in render_to_response
+    return HttpResponse(loader.render_to_string(*args, **kwargs), **httpresponse_kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 169, in render_to_string
+    t = get_template(template_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 145, in get_template
+    template, origin = find_template(template_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 134, in find_template
+    source, display_name = loader(name, dirs)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 42, in __call__
+    return self.load_template(template_name, template_dirs)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 48, in load_template
+    template = get_template_from_string(source, origin, template_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 156, in get_template_from_string
+    return Template(source, origin, name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/base.py", line 125, in __init__
+    self.nodelist = compile_string(template_string, origin)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/base.py", line 153, in compile_string
+    return parser.parse()
+  File "/usr/local/lib/python2.6/dist-packages/django/template/base.py", line 267, in parse
+    compiled_result = compile_func(self, token)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/defaulttags.py", line 1043, in load
+    (taglib, e))
+TemplateSyntaxError: 'staticfiles' is not a valid tag library: Template library staticfiles not found, tried django.templatetags.staticfiles,django.contrib.admin.templatetags.staticfiles
+Internal Server Error: /testex/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 57, in testex
+    return render_to_response("templates/template_start.html")
+  File "/usr/local/lib/python2.6/dist-packages/django/shortcuts/__init__.py", line 20, in render_to_response
+    return HttpResponse(loader.render_to_string(*args, **kwargs), **httpresponse_kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 169, in render_to_string
+    t = get_template(template_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 145, in get_template
+    template, origin = find_template(template_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 134, in find_template
+    source, display_name = loader(name, dirs)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 42, in __call__
+    return self.load_template(template_name, template_dirs)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 48, in load_template
+    template = get_template_from_string(source, origin, template_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 156, in get_template_from_string
+    return Template(source, origin, name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/base.py", line 125, in __init__
+    self.nodelist = compile_string(template_string, origin)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/base.py", line 153, in compile_string
+    return parser.parse()
+  File "/usr/local/lib/python2.6/dist-packages/django/template/base.py", line 267, in parse
+    compiled_result = compile_func(self, token)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/defaulttags.py", line 1043, in load
+    (taglib, e))
+TemplateSyntaxError: 'staticfiles' is not a valid tag library: Template library staticfiles not found, tried django.templatetags.staticfiles,django.contrib.admin.templatetags.staticfiles
+Not Found: /testex/djangoproject120x25.gif
+Not Found: /testex/djangoproject120x25.gif
+Not Found: /testex/djangoproject120x25.gif
+Not Found: /testex/djangoproject120x25.gif
+Not Found: /testex/djangoproject120x25.gif
+Not Found: /testex/site_media/djangoproject120x25.gif
+Not Found: /testex/site_media/djangoproject120x25.gif
+Not Found: /testex/site_media/djangoproject120x25.gif
+Not Found: /ex/
+Internal Server Error: /post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 20, in get_post
+    data = json.loads(json_data)
+  File "/usr/lib/python2.6/json/__init__.py", line 307, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python2.6/json/decoder.py", line 319, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python2.6/json/decoder.py", line 338, in raw_decode
+    raise ValueError("No JSON object could be decoded")
+ValueError: No JSON object could be decoded
+Internal Server Error: /post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 26, in get_post
+    print data
+UnboundLocalError: local variable 'data' referenced before assignment
+Not Found: /poar
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /ex
+Forbidden (CSRF cookie not set.): /post/
+Forbidden (CSRF cookie not set.): /post/
+Forbidden (CSRF cookie not set.): /post/
+Forbidden (CSRF cookie not set.): /post/
+Internal Server Error: /post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 27, in get_post
+    title = data.get["title"]
+AttributeError: 'list' object has no attribute 'get'
+Internal Server Error: /post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 27, in get_post
+    title = data.get["title"]
+AttributeError: 'list' object has no attribute 'get'
+Internal Server Error: /post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 27, in get_post
+    title = data.get["title"]
+AttributeError: 'list' object has no attribute 'get'
+Internal Server Error: /post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 101, in get_response
+    request.path_info)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 298, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 328, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 323, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/urls.py", line 5, in <module>
+    from wordgap.views import *
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 20
+     data = request.POST
+        ^
+ IndentationError: expected an indented block
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Internal Server Error: /ex/36
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 89, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.6/dist-packages/django/middleware/common.py", line 67, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 531, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 420, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 298, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 328, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 323, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/urls.py", line 5, in <module>
+    from wordgap.views import *
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 10, in <module>
+    import wordex
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/wordex.py", line 81
+     dis = tools.adapt_dis(chosen, pos, dis)
+       ^
+ SyntaxError: invalid syntax
+Internal Server Error: /ex/36
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 89, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.6/dist-packages/django/middleware/common.py", line 67, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 531, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 420, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 298, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 328, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 323, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/urls.py", line 5, in <module>
+    from wordgap.views import *
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 10, in <module>
+    import wordex
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/wordex.py", line 81
+     dis = tools.adapt_dis(chosen, pos, dis)
+       ^
+ SyntaxError: invalid syntax
+Internal Server Error: /ex/36
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 89, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.6/dist-packages/django/middleware/common.py", line 67, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 531, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 420, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 298, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 328, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 323, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/urls.py", line 5, in <module>
+    from wordgap.views import *
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 10, in <module>
+    import wordex
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/wordex.py", line 81
+     dis = tools.adapt_dis(chosen, pos, dis)
+       ^
+ SyntaxError: invalid syntax
+Not Found: /post/
+Not Found: /post/
+Not Found: /post/
+Internal Server Error: /appex/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 41, in get_json
+    ex = wordex.create_ex(text, pos='v', fast=True)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/wordex.py", line 78, in create_ex
+    dis.remove(chosen[3])
+KeyError: u'know'
+Internal Server Error: /testex/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 71, in testex
+    ex = wordex.create_ex(text, pos='v', fast=True)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/wordex.py", line 78, in create_ex
+    dis.remove(chosen[3])
+KeyError: u'know'
+Internal Server Error: /testex/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 101, in get_response
+    request.path_info)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 298, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 328, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 323, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/urls.py", line 5, in <module>
+    from wordgap.views import *
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 10, in <module>
+    import wordex
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/wordex.py", line 74
+     dis = tools.get_dis(chosen, pos, lemmas_in_order_of_frequency, fast=fast)
+    ^
+ IndentationError: unexpected indent
+Internal Server Error: /testex/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 71, in testex
+    ex = wordex.create_ex(text, pos='v', fast=True)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/wordex.py", line 74, in create_ex
+    dis = tools.get_dis(chosen, pos, lemmas_in_order_of_frequency, fast=fast)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/tools.py", line 370, in get_dis
+    dis[2] = random.choice(lemmas_in_order_of_frequency)
+  File "/usr/lib/python2.6/random.py", line 261, in choice
+    return seq[int(self.random() * len(seq))]  # raises IndexError if seq is empty
+IndexError: list index out of range
+Internal Server Error: /appex/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 41, in get_json
+    ex = wordex.create_ex(text, pos='v', fast=True)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/wordex.py", line 74, in create_ex
+    dis = tools.get_dis(chosen, pos, lemmas_in_order_of_frequency, fast=fast)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/tools.py", line 370, in get_dis
+    dis[2] = random.choice(lemmas_in_order_of_frequency)
+  File "/usr/lib/python2.6/random.py", line 261, in choice
+    return seq[int(self.random() * len(seq))]  # raises IndexError if seq is empty
+IndexError: list index out of range
+Not Found: /favicon.ico
+Internal Server Error: /testprepex/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 52, in testprepex
+    ex = prepex.create_prepex(text)
+AttributeError: 'module' object has no attribute 'create_prepex'
+Internal Server Error: /testprepex/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 52, in testprepex
+    ex = prepex.create_prepex(text)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/prepex.py", line 23, in create_prepex
+    except (PickleError, IOError) as err:
+NameError: global name 'PickleError' is not defined
+Not Found: /testprepex/1
+Not Found: /testprepex/1/
+Not Found: /testprepex/1/
+Not Found: /ex
+Not Found: /ex
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Internal Server Error: /testex/1/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 159, in showSentence
+    return render_to_response('templates/template_sentence.html', locals())
+  File "/usr/local/lib/python2.6/dist-packages/django/shortcuts/__init__.py", line 20, in render_to_response
+    return HttpResponse(loader.render_to_string(*args, **kwargs), **httpresponse_kwargs)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 169, in render_to_string
+    t = get_template(template_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 145, in get_template
+    template, origin = find_template(template_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 134, in find_template
+    source, display_name = loader(name, dirs)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 42, in __call__
+    return self.load_template(template_name, template_dirs)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 48, in load_template
+    template = get_template_from_string(source, origin, template_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/loader.py", line 156, in get_template_from_string
+    return Template(source, origin, name)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/base.py", line 125, in __init__
+    self.nodelist = compile_string(template_string, origin)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/base.py", line 153, in compile_string
+    return parser.parse()
+  File "/usr/local/lib/python2.6/dist-packages/django/template/base.py", line 246, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/base.py", line 346, in compile_filter
+    return FilterExpression(token, self)
+  File "/usr/local/lib/python2.6/dist-packages/django/template/base.py", line 536, in __init__
+    token[start:]))
+TemplateSyntaxError: Could not parse some characters: ex| ||length
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Internal Server Error: /wordlist
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 89, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.6/dist-packages/django/middleware/common.py", line 77, in process_request
+    "settings.") % (new_url[0], new_url[1]))
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 192.168.178.27/wordlist/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+Not Found: /wordlist/
+Not Found: /wordlist/
+Not Found: /wordlist/
+Not Found: /wordlist/
+Not Found: /wordlist/
+Internal Server Error: /wordlist/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 56, in wordlist
+    return HttpResponse(simplejson.dumps(ex), mimetype='application/json')
+NameError: global name 'ex' is not defined
+Not Found: /post/
+Internal Server Error: /testprepex/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 101, in get_response
+    request.path_info)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 298, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 328, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 323, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/urls.py", line 5, in <module>
+    from wordgap.views import *
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 10, in <module>
+    import wordex
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/wordex.py", line 1, in <module>
+    import tools
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/tools.py", line 375
+     return get_dis(chosen, pos, lemmas_in_order_of_frequency, fast=fast, no_tries)
+ SyntaxError: non-keyword arg after keyword arg
+Not Found: /wordlist/
+Not Found: /wordlist/
+Not Found: /wordlist/
+Internal Server Error: /wordlist/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 101, in get_response
+    request.path_info)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 298, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 328, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 323, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/urls.py", line 5, in <module>
+    from wordgap.views import *
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 10, in <module>
+    import wordex
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/wordex.py", line 1, in <module>
+    import tools
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/tools.py", line 373
+ SyntaxError: Non-ASCII character '\xc3' in file /home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/tools.py on line 373, but no encoding declared; see http://www.python.org/peps/pep-0263.html for details (tools.py, line 373)
+Not Found: /appex
+Internal Server Error: /testjson/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 68, in testjson
+    ex = wordex.create_ex(text, pos='a', fast=True)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/wordex.py", line 101, in create_ex
+    sents_with_cloze = tools.sanitize_sents(sents_with_cloze)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/tools.py", line 410, in sanitize_sents
+    temp[-1][1] += " " + sents_with_cloze[i][0]
+IndexError: list index out of range
+Internal Server Error: /testjson/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 68, in testjson
+    ex = wordex.create_ex(text, pos='a', fast=True)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/wordex.py", line 101, in create_ex
+    sents_with_cloze = tools.sanitize_sents(sents_with_cloze)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/tools.py", line 410, in sanitize_sents
+    temp[-1][1] += " " + sents_with_cloze[i][0]
+IndexError: list index out of range
+Internal Server Error: /testjson/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 68, in testjson
+    ex = wordex.create_ex(text, pos='a', fast=True)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/wordex.py", line 101, in create_ex
+    sents_with_cloze = tools.sanitize_sents(sents_with_cloze)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/tools.py", line 411, in sanitize_sents
+    temp[-1][1] += " " + sents_with_cloze[i][0]
+IndexError: list index out of range
+Internal Server Error: /testjson/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 101, in get_response
+    request.path_info)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 298, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 328, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 323, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/urls.py", line 5, in <module>
+    from wordgap.views import *
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 10, in <module>
+    import wordex
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/wordex.py", line 1, in <module>
+    import tools
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/tools.py", line 411
+     if len(temp[-1]) > = 2:
+                        ^
+ SyntaxError: invalid syntax
+Internal Server Error: /wordgap
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 89, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.6/dist-packages/django/middleware/common.py", line 67, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 531, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 420, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 298, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 328, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 323, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/urls.py", line 5, in <module>
+    from wordgap.views import *
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 103
+     if pos=='v' || pos=='n' || pos=='a':
+                  ^
+ SyntaxError: invalid syntax
+Internal Server Error: /wordgap
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 89, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.6/dist-packages/django/middleware/common.py", line 67, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 531, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 420, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 298, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 328, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 323, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/urls.py", line 5, in <module>
+    from wordgap.views import *
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 103
+     if (pos=='v' || pos=='n' || pos=='a'):
+                   ^
+ SyntaxError: invalid syntax
+Internal Server Error: /wordgap
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 89, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.6/dist-packages/django/middleware/common.py", line 67, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 531, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 420, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 298, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 328, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 323, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/urls.py", line 5, in <module>
+    from wordgap.views import *
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 103
+     if (pos=='v' || pos=='n' || pos=='a'):
+                   ^
+ SyntaxError: invalid syntax
+Internal Server Error: /wordgap
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 89, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.6/dist-packages/django/middleware/common.py", line 67, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 531, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 420, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 298, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 328, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 323, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/urls.py", line 5, in <module>
+    from wordgap.views import *
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 103
+     if (pos=='v' || pos=='n' || pos=='a'):
+                   ^
+ SyntaxError: invalid syntax
+Internal Server Error: /wordgap
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 89, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.6/dist-packages/django/middleware/common.py", line 67, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 531, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 420, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 298, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 328, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 323, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/urls.py", line 5, in <module>
+    from wordgap.views import *
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 103
+     if (pos=='v' || pos=='n' || pos=='a'):
+                   ^
+ SyntaxError: invalid syntax
+Internal Server Error: /wordgap
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 89, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.6/dist-packages/django/middleware/common.py", line 67, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 531, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 420, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 298, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 328, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 323, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/urls.py", line 5, in <module>
+    from wordgap.views import *
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 14, in <module>
+    from os import path, acces, R_OK
+ImportError: cannot import name acces
+Not Found: /wordgap/1
+Not Found: /wordgap/prince.txt/a/wordnet
+Not Found: /wordgap/prince/a/wordnet/1
+Not Found: /wordgap/prince/a/wordnet/ex/1
+Not Found: /wordgap/prince/a/wordnet/ex/1
+Internal Server Error: /wordgap/sense_sensibility/z/wordnet/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 188, in get_response
+    response = middleware_method(request, response)
+  File "/usr/local/lib/python2.6/dist-packages/django/contrib/redirects/middleware.py", line 7, in process_response
+    if response.status_code != 404:
+AttributeError: type object 'Http404' has no attribute 'status_code'
+Not Found: /wordgap/sense_sensibility/p
+Not Found: /wordgap/sense_sensibility/p/
+Internal Server Error: /post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 101, in get_response
+    request.path_info)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 298, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 328, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 323, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/urls.py", line 5, in <module>
+    from wordgap.views import *
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 10, in <module>
+    import wordex
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/wordex.py", line 1, in <module>
+    import tools
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/tools.py", line 349
+     if (len(set(dis)) != len(dis) or "" in dis or lemma in dis:
+                                                               ^
+ SyntaxError: invalid syntax
+Internal Server Error: /wordlist/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 101, in get_response
+    request.path_info)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 298, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 328, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 323, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/urls.py", line 5, in <module>
+    from wordgap.views import *
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 10, in <module>
+    import wordex
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/wordex.py", line 1, in <module>
+    import tools
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/tools.py", line 349
+     if (len(set(dis)) != len(dis) or "" in dis or lemma in dis:
+                                                               ^
+ SyntaxError: invalid syntax
+Internal Server Error: /wordlist/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 101, in get_response
+    request.path_info)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 298, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 328, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.6/dist-packages/django/core/urlresolvers.py", line 323, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/lib/python2.6/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/urls.py", line 5, in <module>
+    from wordgap.views import *
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 10, in <module>
+    import wordex
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/wordex.py", line 1, in <module>
+    import tools
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/tools.py", line 349
+     if (len(set(dis)) != len(dis) or "" in dis or lemma in dis:
+                                                               ^
+ SyntaxError: invalid syntax
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /wordgap/sense_sensibility/p
+Internal Server Error: /post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 28, in getjson
+    ex = wordex.create_ex(text, pos=pos, fast=True)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/wordex.py", line 102, in create_ex
+    sents_with_cloze = tools.sanitize_sents(sents_with_cloze)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/tools.py", line 480, in sanitize_sents
+    temp[1][0] = temp[0][0] + " " + temp[1][0]
+IndexError: list index out of range
+Not Found: /testprepex
+Not Found: /favicon.ico
+Internal Server Error: /post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 28, in getjson
+    ex = wordex.create_ex(text, pos=pos, fast=True)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/wordex.py", line 12, in create_ex
+    tagged = tools.tag(sents)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/tools.py", line 117, in tag
+    return [tagger.tag(i) for i in tokens]
+NameError: global name 'tagger' is not defined
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Internal Server Error: /post/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 28, in getjson
+    ex = wordex.create_ex(text, pos=pos, fast=True)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/wordex.py", line 12, in create_ex
+    tagged = tools.tag(sents)
+  File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/tools.py", line 117, in tag
+    return [tagger.tag(i) for i in tokens]
+NameError: global name 'tagger' is not defined

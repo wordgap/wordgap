@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML Basic 1.1//EN"
+    "http://www.w3.org/TR/xhtml-basic/xhtml-basic11.dtd">
+<html>
+<head>
+<title>WordGap Übung - Satz {{ sentenceNo|add:1 }} von {{ sents|length }}</title>
+<meta name="viewport" content="user-scalable=no, width=device-width" />
+<style type="text/css">
+
+body {
+    background-color: mintcream;
+    color: rgb(50, 50, 50);
+    font-family: Helvetica;
+    font-size: 20px;
+    margin: 0;
+    padding: 10px;
+}
+
+}
+.sentence {
+    color: rgb(50, 50, 50);
+    margin: 0;
+}
+
+#gap {
+background-color: lightgreen;
+padding: 0px;
+margin: 0px;
+margin-right: 5px;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+ul {
+list-style: none;
+background-color: mintcream;
+width: 100%;
+position: fixed;
+bottom: 0px;
+padding: 3px;
+margin: 3px;
+}
+
+li {
+
+float: left;
+width: 48%;
+padding: 1px;
+margin-left: 2px;
+
+}
+
+ul li a {
+    back-ground-color: lightgreen;
+    border: 5px solid lightgreen;
+    color: rgb(50, 50, 50);
+    display: block;
+    font-size: 18px;   
+    padding: 10px;
+    text-align: center;
+-webkit-border-radius: 8px;
+border-radius: 8px;
+bottom: 0px;
+}
+
+{% if not solved %}
+
+#choice0 {
+{% if "0" in wrongChoices %} 
+background-color: red;
+pointer-events: none;
+cursor: default;
+{% endif %}
+}
+
+#choice1 {
+{% if "1" in wrongChoices %} 
+background-color: red;
+pointer-events: none;
+cursor: default;
+{% endif %}
+
+}
+#choice2 {
+
+{% if "2" in wrongChoices %} 
+background-color: red;
+pointer-events: none;
+cursor: default;
+{% endif %}
+
+
+}
+#choice3 {
+{% if "3" in wrongChoices %} 
+background-color: red;
+pointer-events: none;
+cursor: default;
+{% endif %}
+}
+
+{% endif %}
+
+
+</style>
+</head>
+
+<body>
+<div class="sentence" >
+<p>
+{{wordsbefore}} <span id="gap">&nbsp;&nbsp;&nbsp; {% if solved %} {{curWord}} {% endif %}  &nbsp;&nbsp; &nbsp; </span> {{wordsafter}} 
+</p>
+</div>
+{% if solved %} 
+<ul>
+<li> <a class="reference internal" id="choice0" href="/ex"><em>Neustart</em></a> </li>
+<li> <a class="reference internal" id="choice1" href="/ex/{{ nextSent }}"><em>Weiter</em></a> </li>
+<li> <a class="reference internal" id="choice2" href="/ex/result"><em>Abbrechen</em></a> </li>
+<li> <a class="reference internal" id="choice3" href="/ex/{{ nextSent }}/merken"><em>Wort merken</em></a><br> </li>
+</ul>
+{% else %}
+   {% if wrongChoices|length == 0 %}
+<ul>
+<li> <a class="reference internal" id="choice0" href="0"><em>{{curChoices.0}}</em></a> </li>
+<li> <a class="reference internal" id="choice1" href="1"><em>{{curChoices.1}}</em></a> </li>
+<li> <a class="reference internal" id="choice2" href="2"><em>{{curChoices.2}}</em></a> </li>
+<li> <a class="reference internal" id="choice3" href="3"><em>{{curChoices.3}}</em></a><br> </li>
+</ul>
+   {% else %}
+<ul>
+<li> <a class="reference internal" id="choice0" href="0"><em>{{curChoices.0}}</em></a> </li>
+<li> <a class="reference internal" id="choice1" href="1"><em>{{curChoices.1}}</em></a> </li>
+<li> <a class="reference internal" id="choice2" href="2"><em>{{curChoices.2}}</em></a> </li>
+<li> <a class="reference internal" id="choice3" href="3"><em>{{curChoices.3}}</em></a><br> </li>
+</ul>
+{% endif %}
+
+{% endif %}
+</body>
+</html>
+

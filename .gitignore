@@ -1,0 +1,16 @@
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+wordgap-client/proguard-project.txt
+wordgap-client.iml
+ant.properties
+local.properties
+wordgap-server/django/wordgap/sessions_sqlite3.db 
+
+# Python #
+*.pyc
+
+
