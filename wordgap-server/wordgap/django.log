@@ -1334,3 +1334,102 @@ Traceback (most recent call last):
   File "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/tools.py", line 117, in tag
     return [tagger.tag(i) for i in tokens]
 NameError: global name 'tagger' is not defined
+Internal Server Error: /wordgap
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 92, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.7/dist-packages/django/middleware/common.py", line 69, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 551, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 440, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 319, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 347, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 342, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/sajin/Uni/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/urls.py", line 5, in <module>
+    from wordgap.views import *
+  File "/home/sajin/Uni/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/views.py", line 10, in <module>
+    import wordex
+  File "/home/sajin/Uni/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/wordex.py", line 1, in <module>
+    import tools
+  File "/home/sajin/Uni/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/tools.py", line 11, in <module>
+    import en
+  File "/home/sajin/Uni/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/en/__init__.py", line 28, in <module>
+    import parser
+  File "/home/sajin/Uni/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/en/parser/__init__.py", line 172, in <module>
+    from nltk_lite.parse import chunk as nltk_chunk
+  File "/home/sajin/Uni/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/en/parser/nltk_lite/parse/__init__.py", line 154, in <module>
+    from tree import *
+  File "/home/sajin/Uni/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/en/parser/nltk_lite/parse/tree.py", line 15, in <module>
+    from en.parser.nltk_lite import tokenize
+ImportError: No module named en.parser.nltk_lite
+Internal Server Error: /wordgap
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 92, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.7/dist-packages/django/middleware/common.py", line 69, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 551, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 440, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 319, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 347, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 342, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/sajin/Uni/Thesis/wordgap/wordgap-server/wordgap/urls.py", line 5, in <module>
+    from wordgap.views import *
+  File "/home/sajin/Uni/Thesis/wordgap/wordgap-server/wordgap/views.py", line 10, in <module>
+    import wordex
+  File "/home/sajin/Uni/Thesis/wordgap/wordgap-server/wordgap/wordex.py", line 1, in <module>
+    import tools
+  File "/home/sajin/Uni/Thesis/wordgap/wordgap-server/wordgap/tools.py", line 32, in <module>
+    tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
+  File "/usr/local/lib/python2.7/dist-packages/nltk-2.0.4-py2.7.egg/nltk/data.py", line 605, in load
+    resource_val = pickle.load(_open(resource_url))
+  File "/usr/local/lib/python2.7/dist-packages/nltk-2.0.4-py2.7.egg/nltk/data.py", line 686, in _open
+    return find(path).open()
+  File "/usr/local/lib/python2.7/dist-packages/nltk-2.0.4-py2.7.egg/nltk/data.py", line 467, in find
+    raise LookupError(resource_not_found)
+LookupError: 
+**********************************************************************
+  Resource 'tokenizers/punkt/english.pickle' not found.  Please
+  use the NLTK Downloader to obtain the resource:  >>>
+  nltk.download()
+  Searched in:
+    - '/home/sajin/nltk_data'
+    - '/usr/share/nltk_data'
+    - '/usr/local/share/nltk_data'
+    - '/usr/lib/nltk_data'
+    - '/usr/local/lib/nltk_data'
+**********************************************************************
+Internal Server Error: /wordgap/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 115, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Uni/Thesis/wordgap/wordgap-server/wordgap/views.py", line 97, in testex
+    text = tools.load_text("wordgap/data/test.txt")
+  File "/home/sajin/Uni/Thesis/wordgap/wordgap-server/wordgap/tools.py", line 63, in load_text
+    fh.close()
+AttributeError: 'NoneType' object has no attribute 'close'
+Internal Server Error: /wordgap/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 115, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/sajin/Uni/Thesis/wordgap/wordgap-server/wordgap/views.py", line 100, in testex
+    ex = wordex.create_ex(text, pos=pos, fast=fast)
+  File "/home/sajin/Uni/Thesis/wordgap/wordgap-server/wordgap/wordex.py", line 12, in create_ex
+    tagged = tools.tag(sents)
+  File "/home/sajin/Uni/Thesis/wordgap/wordgap-server/wordgap/tools.py", line 117, in tag
+    return [tagger.tag(i) for i in tokens]
+NameError: global name 'tagger' is not defined

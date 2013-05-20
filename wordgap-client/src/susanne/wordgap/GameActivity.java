@@ -1,5 +1,10 @@
 package susanne.wordgap;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+
+import android.R;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -18,11 +23,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
-
 /**
  * @author: Susanne Knoop
  * Activity, die für die eigentliche Durchführung der Übung zuständig ist.
@@ -31,7 +31,7 @@ import java.util.Set;
  */
 public class GameActivity extends Activity {
 
-    ArrayList<Sent> ex = new ArrayList<>();
+    ArrayList<Sent> ex = new ArrayList<Sent>();
     private static final String TAG = "wordgap - GameActivity";
     private int sentenceNo;
     private Sent currentSentence;
@@ -50,12 +50,13 @@ public class GameActivity extends Activity {
     private Activity thisActivity;
     private boolean backPressedOnce = false;
 
-    public void onCreate(Bundle savedInstanceState) {
+    @Override
+	public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game_layout);
         app = (WordgapApplication) getApplication();
-        this.ex = app.getEx();
+        ex = app.getEx();
         textView = (TextView) findViewById(R.id.text);
         textView.setMovementMethod(new ScrollingMovementMethod());
         textView.setScrollbarFadingEnabled(false);
@@ -73,7 +74,7 @@ public class GameActivity extends Activity {
 
         super.onPostCreate(savedInstanceState);
         thisActivity = this;
-        if(this.ex == null && this.ex.size() == 0) {
+        if(ex == null && ex.size() == 0) {
             Log.e(TAG, "Current App Exercise is null!");
             // TODO Dialog anzeigen
         }
@@ -116,7 +117,7 @@ public class GameActivity extends Activity {
         else {
             if(wrongButtons.size() == 0) {
                 greenButtons();
-                ArrayList<String> candidates = new ArrayList<>(currentSentence.dis);
+                final ArrayList<String> candidates = new ArrayList<>(currentSentence.dis);
                 candidates.add(currentSentence.token);
                 Collections.shuffle(candidates);
                 b1.setText(candidates.get(0));
@@ -137,7 +138,7 @@ public class GameActivity extends Activity {
 
     public void disClick(View v) {
 
-        Button b = (Button) v;
+        final Button b = (Button) v;
         if(end) {
             handleFinalChoice(v);
         }
@@ -173,7 +174,7 @@ public class GameActivity extends Activity {
 
                 else if(b.getId() == b4.getId()) {
                     if(pos.equals("p")) {
-                        Toast toast = Toast.makeText(this, "Für Präpositionen ist diese Funktion nicht verfügbar!", Toast.LENGTH_LONG);
+                        final Toast toast = Toast.makeText(this, "Für Präpositionen ist diese Funktion nicht verfügbar!", Toast.LENGTH_LONG);
                         toast.setGravity(Gravity.CENTER, 0, 0);
                         toast.show();
                     }
@@ -181,7 +182,7 @@ public class GameActivity extends Activity {
                         markedWords.add(currentSentence.token);
                         app.setMarkedWords(markedWords);
                         Log.i(TAG, currentSentence.token + " gemerkt");
-                        Toast toast = Toast.makeText(this, currentSentence.token + " auf die Wortliste gesetzt.", Toast.LENGTH_SHORT);
+                        final Toast toast = Toast.makeText(this, currentSentence.token + " auf die Wortliste gesetzt.", Toast.LENGTH_SHORT);
                         toast.setGravity(Gravity.CENTER, 0, 0);
                         toast.show();
                     }
@@ -203,12 +204,12 @@ public class GameActivity extends Activity {
             }
         }
         else {
-            String clicked = b.getText().toString();
+            final String clicked = b.getText().toString();
             if(clicked.equals(currentSentence.token)) {
                 solved = true;
                 right++;
                 Log.i(TAG, "right: " + right);
-                Toast toast = Toast.makeText(this, currentSentence.token + " ist richtig!", Toast.LENGTH_SHORT);
+                final Toast toast = Toast.makeText(this, currentSentence.token + " ist richtig!", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show();
                 wrongButtons.clear();
@@ -220,7 +221,7 @@ public class GameActivity extends Activity {
                 if(!wrongButtons.contains(b)) {
                     wrong++;
                     b.setBackgroundColor(getResources().getColor(R.color.apple));
-                    Toast toast = Toast.makeText(this, clicked + " ist falsch!", Toast.LENGTH_SHORT);
+                    final Toast toast = Toast.makeText(this, clicked + " ist falsch!", Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.CENTER, 0, 0);
                     toast.show();
                     wrongButtons.add(b);
@@ -232,24 +233,24 @@ public class GameActivity extends Activity {
 
     private void handleFinalChoice(View v) {
 
-        Button b = (Button) v;
+        final Button b = (Button) v;
 
         // Abbrechen
         if(b.getId() == b1.getId()) {
 
-            Intent i = new Intent(this, WordgapMainMenuActivity.class);
+            final Intent i = new Intent(this, WordgapMainMenuActivity.class);
             i.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             startActivity(i);
         }
         else if(b.getId() == b2.getId()) {
 
-                StringBuilder sb = new StringBuilder();
-                for(int i = 0; i < this.ex.size(); i++) {
-                    Sent s = ex.get(i);
+                final StringBuilder sb = new StringBuilder();
+                for(int i = 0; i < ex.size(); i++) {
+                    final Sent s = ex.get(i);
                     sb.append(s.toString());
                     sb.append("\n\n");
                 }
-                Intent sendIntent = new Intent();
+                final Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
                 sendIntent.putExtra(Intent.EXTRA_TEXT, sb.toString());
                 sendIntent.setType("text/plain");
@@ -265,12 +266,12 @@ public class GameActivity extends Activity {
             }
             else {
                 app.setMarkedWords(markedWords);
-                Intent i = new Intent(this, MarkedWordsListActivity.class);
+                final Intent i = new Intent(this, MarkedWordsListActivity.class);
                 startActivity(i);
             }
         }
         else if(b.getId() == b4.getId()) {
-            this.moveTaskToBack(true);
+            moveTaskToBack(true);
         }
     }
 
@@ -278,14 +279,14 @@ public class GameActivity extends Activity {
 
         greenButtons();
         end = true;
-        int percent = (int) (((float) right / (float) (right + wrong)) * 100);
+        final int percent = (int) ((float) right / (float) (right + wrong) * 100);
         String text = "Du hast " + right + " von " + (right + wrong) +
                 " Versuchen richtig beantwortet!<br><br>Das sind <b>" + percent + "</b> Prozent.<br><br>";
         int totalRight = prefs.getInt("totalRight", 0);
         int totalWrong = prefs.getInt("totalWrong", 0);
         if(totalRight > 0 || totalWrong > 0) {
-            int totalPercentOld = (int) (((float) totalRight / (float) (totalRight + totalWrong)) * 100);
-            int totalPercentNew = (int) (((float) (totalRight + right) / (float) (totalRight + right + totalWrong + wrong)) * 100);
+            final int totalPercentOld = (int) ((float) totalRight / (float) (totalRight + totalWrong) * 100);
+            final int totalPercentNew = (int) ((float) (totalRight + right) / (float) (totalRight + right + totalWrong + wrong) * 100);
             if(totalPercentOld < totalPercentNew) {
                 text += "Deine Gesamtwertung hat sich um " + (totalPercentNew - totalPercentOld) + " Prozent " +
                         " auf <b>" + totalPercentNew + "</b> Prozent verbessert!";
@@ -301,7 +302,7 @@ public class GameActivity extends Activity {
         // update prefs
         totalRight += right;
         totalWrong += wrong;
-        SharedPreferences.Editor editor = prefs.edit();
+        final SharedPreferences.Editor editor = prefs.edit();
         editor.putInt("totalRight", totalRight);
         editor.putInt("totalWrong", totalWrong);
         editor.commit();
@@ -316,7 +317,7 @@ public class GameActivity extends Activity {
     @Override
     protected Dialog onCreateDialog(int id) {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         switch(id) {
             case DIALOG_NO_WORDS:
                 builder.setMessage("Keine gemerkten Wörter vorhanden");
@@ -325,7 +326,7 @@ public class GameActivity extends Activity {
                     public void onClick(DialogInterface dialog, int which) {
 
                         dialog.dismiss();
-                        Intent i = new Intent(thisActivity, WordgapMainMenuActivity.class);
+                        final Intent i = new Intent(thisActivity, WordgapMainMenuActivity.class);
                         i.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                         startActivity(i);
                     }
@@ -341,7 +342,7 @@ public class GameActivity extends Activity {
 
         super.onRestart();
         Log.i(TAG, "onRestart");
-        Intent i = new Intent(this, WordgapMainMenuActivity.class);
+        final Intent i = new Intent(this, WordgapMainMenuActivity.class);
         i.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(i);
     }
@@ -361,11 +362,11 @@ public class GameActivity extends Activity {
             handleFinalChoice(b1);
         } else {
             backPressedOnce = true;
-            Toast toast = Toast
+            final Toast toast = Toast
                     .makeText(this, "Erneut drücken um abzubrechen", Toast.LENGTH_SHORT);
             toast.show();
 
-            CountDownTimer countdownTimer = new CountDownTimer(2000,2000) {
+            final CountDownTimer countdownTimer = new CountDownTimer(2000,2000) {
 
                 @Override
                 public void onFinish() {

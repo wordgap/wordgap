@@ -1,5 +1,16 @@
 package susanne.wordgap;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collections;
+
+import android.R;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ListActivity;
@@ -13,10 +24,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
-import java.io.*;
-import java.util.ArrayList;
-import java.util.Collections;
 
 /**
  * @author: Susanne Knoop
@@ -38,21 +45,22 @@ public class OpenExActivity extends ListActivity {
     String title = "";
     String text = "";
     String pos;
-    private ArrayList<String> allFiles = new ArrayList<>();
+    private final ArrayList<String> allFiles = new ArrayList<>();
     ArrayAdapter<String> adapter;
     private SharedPreferences prefs;
     private String ipaddress;
 
-    public void onCreate(Bundle savedInstanceState) {
+    @Override
+	public void onCreate(Bundle savedInstanceState) {
 
-        this.share = getIntent().getBooleanExtra("share", false);
-        this.own = getIntent().getBooleanExtra("own", false);
+        share = getIntent().getBooleanExtra("share", false);
+        own = getIntent().getBooleanExtra("own", false);
         super.onCreate(savedInstanceState);
         prefs = getSharedPreferences("wordgap", MODE_PRIVATE);
         ipaddress = prefs.getString("IP", "192.168.178.27");
-        this.sc = new ServerCommunicator(ipaddress);
-        this.manager = getAssets();
-        this.app = (WordgapApplication) getApplication();
+        sc = new ServerCommunicator(ipaddress);
+        manager = getAssets();
+        app = (WordgapApplication) getApplication();
         adapter = new ArrayAdapter(this, R.layout.list_item, allFiles);
 
         //getListView().setBackgroundColor(getResources().getColor(R.color.mistygreen));
@@ -86,7 +94,7 @@ public class OpenExActivity extends ListActivity {
             }
             Log.i(TAG, "userFiles :" + savedFilesString);
             for(int i = 0; i < userFiles.length; i++) {
-                String filename = userFiles[i];
+                final String filename = userFiles[i];
                 if(filename.endsWith(".json")) {
                     allFiles.add(filename.replace(".json", ""));
                 }
@@ -97,14 +105,14 @@ public class OpenExActivity extends ListActivity {
                 // listet Dateien aus "/assets/* auf
                 assetFiles = manager.list("");
             }
-            catch(IOException e) {
+            catch(final IOException e) {
                 e.printStackTrace();
             }
             for(int i = 0; i < assetFiles.length; i++) {
                 Log.i(TAG, assetFiles[i]);
             }
             for(int i = 0; i < assetFiles.length; i++) {
-                String filename = assetFiles[i];
+                final String filename = assetFiles[i];
                 if(filename.endsWith(".json")) {
                     allFiles.add(filename.replace(".json", ""));
                 }
@@ -125,9 +133,10 @@ public class OpenExActivity extends ListActivity {
     protected void onPostCreate(Bundle savedInstanceState) {
 
         super.onPostCreate(savedInstanceState);
-        this.getListView().setLongClickable(true);
-        this.getListView().setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            public boolean onItemLongClick(AdapterView<?> parent, View v, int position, long id) {
+        getListView().setLongClickable(true);
+        getListView().setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+			public boolean onItemLongClick(AdapterView<?> parent, View v, int position, long id) {
 
                 Log.i(TAG, "onItemLongClick");
                 if(own) {
@@ -162,13 +171,13 @@ public class OpenExActivity extends ListActivity {
         if(share) {
             filename = allFiles.get(position);
             ex = openJSONFile(filename + ".json");
-            StringBuilder sb = new StringBuilder();
-            for(int i = 0; i < this.ex.size(); i++) {
-                Sent s = ex.get(i);
+            final StringBuilder sb = new StringBuilder();
+            for(int i = 0; i < ex.size(); i++) {
+                final Sent s = ex.get(i);
                 sb.append(s.toString());
                 sb.append("\n\n");
             }
-            Intent sendIntent = new Intent();
+            final Intent sendIntent = new Intent();
             sendIntent.setAction(Intent.ACTION_SEND);
             sendIntent.putExtra(Intent.EXTRA_TEXT, sb.toString());
             sendIntent.setType("text/plain");
@@ -185,11 +194,11 @@ public class OpenExActivity extends ListActivity {
     @Override
     protected Dialog onCreateDialog(int id) {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         switch(id) {
             case DIALOG_PLAY:
                 builder.setTitle("Übung öffnen");
-                builder.setMessage("Möchtest du die Übung " + this.filename + " jetzt durchführen?");
+                builder.setMessage("Möchtest du die Übung " + filename + " jetzt durchführen?");
                 builder.setPositiveButton("Ja", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -202,7 +211,7 @@ public class OpenExActivity extends ListActivity {
                         app.setTitle(title);
                         app.setPos(pos);
                         Log.i(TAG, "pos: " + app.getPos());
-                        Intent i = new Intent(OpenExActivity.this, GameActivity.class);
+                        final Intent i = new Intent(OpenExActivity.this, GameActivity.class);
                         startActivity(i);
                         dialog.dismiss();
                     }
@@ -222,9 +231,9 @@ public class OpenExActivity extends ListActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-                        File dir = getFilesDir();
-                        File file = new File(dir, filename + ".json");
-                        boolean deleted = file.delete();
+                        final File dir = getFilesDir();
+                        final File file = new File(dir, filename + ".json");
+                        final boolean deleted = file.delete();
                         updateFilenames();
                         dialog.dismiss();
                     }
@@ -245,26 +254,26 @@ public class OpenExActivity extends ListActivity {
 
         ArrayList<Sent> openedEx = null;
         try {
-            StringBuilder sb = new StringBuilder();
+            final StringBuilder sb = new StringBuilder();
             if(own) {
-                FileInputStream in = openFileInput(filename);
-                BufferedInputStream bis = new BufferedInputStream(in);
+                final FileInputStream in = openFileInput(filename);
+                final BufferedInputStream bis = new BufferedInputStream(in);
                 while(bis.available() > 0) {
                     sb.append((char) bis.read());
                 }
             }
             else {
-                InputStream in = manager.open(filename);
-                BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+                final InputStream in = manager.open(filename);
+                final BufferedReader reader = new BufferedReader(new InputStreamReader(in));
                 String line;
                 while((line = reader.readLine()) != null) {
                     sb.append(line);
                 }
             }
-            String json = sb.toString();
+            final String json = sb.toString();
             openedEx = sc.parseJSONEx(json);
         }
-        catch(IOException e) {
+        catch(final IOException e) {
             Log.i(TAG, "Kann Datei " + filename + " nicht öffnen");
             e.printStackTrace();
         }

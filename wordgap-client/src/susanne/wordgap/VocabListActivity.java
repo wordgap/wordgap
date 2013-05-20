@@ -1,18 +1,25 @@
 package susanne.wordgap;
 
-import android.app.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
+import android.R;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.ListActivity;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
-import java.io.*;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @author: Susanne Knoop
@@ -23,22 +30,23 @@ public class VocabListActivity extends ListActivity {
     private ArrayAdapter adapter;
     //private HashSet<String> markedWords = new HashSet<>();
     private ArrayList<String> markedWordsList = new ArrayList<>();
-    private Map<String, String> definitions = new HashMap<>();
+    private final Map<String, String> definitions = new HashMap<>();
     private Activity thisActivity;
     String currentDefinition;
     IOException io;
     private static final String TAG = "wordgap - VocabListActivity";
 
-    private String wordslistFilename = "markedwords.csv";
+    private final String wordslistFilename = "markedwords.csv";
     private File wordslistFile;
     private static final int DIALOG_DEFINITION = 0;
     private static final int DIALOG_NO_FILE = 1;
     private static final int DIALOG_NO_MARKED_WORDS = 2;
 
-    public void onCreate(Bundle savedInstanceState) {
+    @Override
+	public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        this.app = (WordgapApplication) getApplication();
+        app = (WordgapApplication) getApplication();
         markedWordsList = new ArrayList<String>();
         Log.i(TAG, "Starting " + TAG);
         adapter = new ArrayAdapter(this, R.layout.list_item, markedWordsList);
@@ -55,13 +63,13 @@ public class VocabListActivity extends ListActivity {
             try {
                 updateList();
             }
-            catch(IOException io1) {
+            catch(final IOException io1) {
                 Log.e(TAG, io1.getStackTrace().toString());
                 showDialog(DIALOG_NO_FILE);
                 try {
                     updateList();
                 }
-                catch(IOException io2) {
+                catch(final IOException io2) {
                     Log.e(TAG, io2.getStackTrace().toString());
                     showDialog(DIALOG_NO_FILE);
                 }
@@ -75,13 +83,13 @@ public class VocabListActivity extends ListActivity {
 
     private void updateList() throws IOException {
 
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(getFilesDir() + File.separator + wordslistFilename)));
+        final BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(getFilesDir() + File.separator + wordslistFilename)));
         String read;
-        StringBuilder builder = new StringBuilder();
+        final StringBuilder builder = new StringBuilder();
         while((read = bufferedReader.readLine()) != null) {
             builder.append(read);
             Log.i(TAG, "read Line in wordslistFile: " + read);
-            String[] split = read.split("\t");
+            final String[] split = read.split("\t");
             if(split.length == 2) {
                 // avoid duplicates
                 if(!markedWordsList.contains(split[0])) {
@@ -105,12 +113,12 @@ public class VocabListActivity extends ListActivity {
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
 
-        String lemma = markedWordsList.get(position);
+        final String lemma = markedWordsList.get(position);
         if(definitions != null && definitions.size() > 0) {
             try {
                 currentDefinition = definitions.get(lemma);
             }
-            catch(IndexOutOfBoundsException e) {
+            catch(final IndexOutOfBoundsException e) {
                 e.printStackTrace();
                 Log.e(TAG, "Fehler beim Laden der Definition von " + lemma + ", Position " + position);
                 // Nur Wort selbst anzeigen
@@ -127,7 +135,7 @@ public class VocabListActivity extends ListActivity {
     @Override
     protected Dialog onCreateDialog(int id) {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         if(id == DIALOG_DEFINITION) {
             builder.setTitle("Definition des gemerkten Wortes");
             builder.setMessage(currentDefinition);
@@ -174,7 +182,7 @@ public class VocabListActivity extends ListActivity {
         try {
             updateList();
         }
-        catch(IOException e) {
+        catch(final IOException e) {
             e.printStackTrace();
         }
     }
