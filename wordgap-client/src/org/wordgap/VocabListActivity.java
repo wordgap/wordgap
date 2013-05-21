@@ -1,19 +1,6 @@
-package susanne.wordgap;
+package org.wordgap;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-
-import android.R;
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.ListActivity;
+import android.app.*;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,35 +8,40 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
+
 /**
  * @author: Susanne Knoop
  */
 public class VocabListActivity extends ListActivity {
 
-    private WordgapApplication app;
-    private ArrayAdapter adapter;
+    //private WordgapApplication app;
+    private ArrayAdapter<String> adapter;
     //private HashSet<String> markedWords = new HashSet<>();
-    private ArrayList<String> markedWordsList = new ArrayList<>();
-    private final Map<String, String> definitions = new HashMap<>();
-    private Activity thisActivity;
+    private ArrayList<String> markedWordsList = new ArrayList<String>();
+    private Map<String, String> definitions = new HashMap<String, String>();
     String currentDefinition;
     IOException io;
     private static final String TAG = "wordgap - VocabListActivity";
 
-    private final String wordslistFilename = "markedwords.csv";
-    private File wordslistFile;
+    private String wordslistFilename = getString(R.string.wordslist_filename);
+    private File wordslistFile = new File(wordslistFilename);
     private static final int DIALOG_DEFINITION = 0;
     private static final int DIALOG_NO_FILE = 1;
     private static final int DIALOG_NO_MARKED_WORDS = 2;
 
-    @Override
-	public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        app = (WordgapApplication) getApplication();
+        //this.app = (WordgapApplication) getApplication();
         markedWordsList = new ArrayList<String>();
         Log.i(TAG, "Starting " + TAG);
-        adapter = new ArrayAdapter(this, R.layout.list_item, markedWordsList);
+        adapter = new ArrayAdapter<String>(this, R.layout.list_item, markedWordsList);
         getListView().setAdapter(adapter);
     }
 
@@ -63,13 +55,13 @@ public class VocabListActivity extends ListActivity {
             try {
                 updateList();
             }
-            catch(final IOException io1) {
+            catch(IOException io1) {
                 Log.e(TAG, io1.getStackTrace().toString());
                 showDialog(DIALOG_NO_FILE);
                 try {
                     updateList();
                 }
-                catch(final IOException io2) {
+                catch(IOException io2) {
                     Log.e(TAG, io2.getStackTrace().toString());
                     showDialog(DIALOG_NO_FILE);
                 }
@@ -83,13 +75,13 @@ public class VocabListActivity extends ListActivity {
 
     private void updateList() throws IOException {
 
-        final BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(getFilesDir() + File.separator + wordslistFilename)));
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(getFilesDir() + File.separator + wordslistFilename)));
         String read;
-        final StringBuilder builder = new StringBuilder();
+        StringBuilder builder = new StringBuilder();
         while((read = bufferedReader.readLine()) != null) {
             builder.append(read);
             Log.i(TAG, "read Line in wordslistFile: " + read);
-            final String[] split = read.split("\t");
+            String[] split = read.split("\t");
             if(split.length == 2) {
                 // avoid duplicates
                 if(!markedWordsList.contains(split[0])) {
@@ -113,14 +105,14 @@ public class VocabListActivity extends ListActivity {
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
 
-        final String lemma = markedWordsList.get(position);
+        String lemma = markedWordsList.get(position);
         if(definitions != null && definitions.size() > 0) {
             try {
                 currentDefinition = definitions.get(lemma);
             }
-            catch(final IndexOutOfBoundsException e) {
+            catch(IndexOutOfBoundsException e) {
                 e.printStackTrace();
-                Log.e(TAG, "Fehler beim Laden der Definition von " + lemma + ", Position " + position);
+                Log.e(TAG, "Error when loading definition of " + lemma + ", position " + position);
                 // Nur Wort selbst anzeigen
                 currentDefinition = lemma;
             }
@@ -135,9 +127,9 @@ public class VocabListActivity extends ListActivity {
     @Override
     protected Dialog onCreateDialog(int id) {
 
-        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
         if(id == DIALOG_DEFINITION) {
-            builder.setTitle("Definition des gemerkten Wortes");
+            builder.setTitle(R.string.definition);
             builder.setMessage(currentDefinition);
             builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                 @Override
@@ -149,8 +141,8 @@ public class VocabListActivity extends ListActivity {
             return builder.show();
         }
         else if(id == DIALOG_NO_FILE) {
-            builder.setTitle("Fehler");
-            builder.setMessage("Die Definitionen können nicht angezeigt werden, weil die Datei nicht geladen werden konnte.");
+            builder.setTitle(R.string.error);
+            builder.setMessage(R.string.error_file);
             builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
@@ -161,8 +153,8 @@ public class VocabListActivity extends ListActivity {
             return builder.show();
         }
         else if(id == DIALOG_NO_MARKED_WORDS) {
-            builder.setTitle("Wortliste ist leer!");
-            builder.setMessage("Du hast noch keine Wörter zur Wortliste hinzugefügt!");
+            builder.setTitle(R.string.empty_wordlist);
+            builder.setMessage(R.string.no_words_added_to_wordlist);
             builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
@@ -182,7 +174,7 @@ public class VocabListActivity extends ListActivity {
         try {
             updateList();
         }
-        catch(final IOException e) {
+        catch(IOException e) {
             e.printStackTrace();
         }
     }

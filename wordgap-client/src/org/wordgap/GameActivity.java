@@ -1,10 +1,5 @@
-package susanne.wordgap;
+package org.wordgap;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-
-import android.R;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -23,11 +18,19 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+
+
 /**
  * @author: Susanne Knoop
  * Activity, die für die eigentliche Durchführung der Übung zuständig ist.
  * Nacheinander wird jeder Satz mit den Distraktoren angezeigt.
  * Am Ende oder nach Klick auf "Abbrechen" wird das Ergebnis angezeigt.
+ * 
+ * Activity for displaying the exercise. Sentences are displayed sequentially with their target
+ * words and distractors. The result is displayed at the end or after tapping "Cancel". 
  */
 public class GameActivity extends Activity {
 
@@ -41,8 +44,8 @@ public class GameActivity extends Activity {
     boolean end = false;
     int wrong = 0;
     int right = 0;
-    HashSet<String> markedWords = new HashSet();
-    ArrayList<Button> wrongButtons = new ArrayList<>();
+    HashSet<String> markedWords = new HashSet<String>();
+    ArrayList<Button> wrongButtons = new ArrayList<Button>();
     SharedPreferences prefs;
     WordgapApplication app;
     String pos = "";
@@ -50,17 +53,16 @@ public class GameActivity extends Activity {
     private Activity thisActivity;
     private boolean backPressedOnce = false;
 
-    @Override
-	public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game_layout);
         app = (WordgapApplication) getApplication();
-        ex = app.getEx();
+        this.ex = app.getEx();
         textView = (TextView) findViewById(R.id.text);
         textView.setMovementMethod(new ScrollingMovementMethod());
         textView.setScrollbarFadingEnabled(false);
-        prefs = getSharedPreferences("wordgap", MODE_PRIVATE);
+        prefs = getSharedPreferences(getString(R.string.wordgap), MODE_PRIVATE);
         b1 = (Button) findViewById(R.id.b1);
         b2 = (Button) findViewById(R.id.b2);
         b3 = (Button) findViewById(R.id.b3);
@@ -74,7 +76,7 @@ public class GameActivity extends Activity {
 
         super.onPostCreate(savedInstanceState);
         thisActivity = this;
-        if(ex == null && ex.size() == 0) {
+        if(this.ex == null && this.ex.size() == 0) {
             Log.e(TAG, "Current App Exercise is null!");
             // TODO Dialog anzeigen
         }
@@ -89,7 +91,8 @@ public class GameActivity extends Activity {
     private void updateText() {
 
         Spanned textFormatted;
-        String text = "<b>Satz " + (sentenceNo+1) + " von " + ex.size() + "</b><br><br>";
+        String text = "<b> " + getString(R.string.sentence) + " " + (sentenceNo+1) + " " + getString(R.string.of) + " " + ex.size() 
+        		+ "</b><br><br>";
 
 
         if(solved) {
@@ -109,15 +112,15 @@ public class GameActivity extends Activity {
         if(solved) {
             // alle Buttons wieder grün
             greenButtons();
-            b1.setText("Zurück");
-            b2.setText("Weiter");
-            b3.setText("Abbrechen");
-            b4.setText("Wort merken");
+            b1.setText(R.string.back);
+            b2.setText(R.string.next);
+            b3.setText(R.string.cancel);
+            b4.setText(R.string.mark_word);
         }
         else {
             if(wrongButtons.size() == 0) {
                 greenButtons();
-                final ArrayList<String> candidates = new ArrayList<>(currentSentence.dis);
+                ArrayList<String> candidates = new ArrayList<String>(currentSentence.dis);
                 candidates.add(currentSentence.token);
                 Collections.shuffle(candidates);
                 b1.setText(candidates.get(0));
@@ -130,23 +133,23 @@ public class GameActivity extends Activity {
 
     private void greenButtons() {
 
-        b1.setBackgroundColor(getResources().getColor(R.color.mistygreen));
-        b2.setBackgroundColor(getResources().getColor(R.color.mistygreen));
-        b3.setBackgroundColor(getResources().getColor(R.color.mistygreen));
-        b4.setBackgroundColor(getResources().getColor(R.color.mistygreen));
+        b1.setBackgroundColor(getResources().getColor(R.color.hellblau));
+        b2.setBackgroundColor(getResources().getColor(R.color.hellblau));
+        b3.setBackgroundColor(getResources().getColor(R.color.hellblau));
+        b4.setBackgroundColor(getResources().getColor(R.color.hellblau));
     }
 
     public void disClick(View v) {
 
-        final Button b = (Button) v;
+        Button b = (Button) v;
         if(end) {
             handleFinalChoice(v);
         }
         if(solved) {
             // Ein Satz weiter
 
-            Log.i(TAG, "aktueller Satz: " + sentenceNo);
-            // Ende der Übung erreicht?
+            Log.i(TAG, "current sentence: " + sentenceNo);
+            // end of exercise?
             if(sentenceNo+1 > ex.size() - 1) {
                 end = true;
                 showResults();
@@ -155,7 +158,7 @@ public class GameActivity extends Activity {
 
                 if(b.getId() == b1.getId()) {
                     // gehe einen Satz zurück
-                    Log.i(TAG, "einen Satz zurückgehen");
+                    Log.i(TAG, "back");
                     if(sentenceNo > 0) {
                         sentenceNo--;
                     }
@@ -166,7 +169,7 @@ public class GameActivity extends Activity {
                 }
 
                 else if(b.getId() == b3.getId()) {
-                    Log.i(TAG, "Abbrechen");
+                    Log.i(TAG, getString(R.string.cancel));
                     end = true;
                     showResults();
                     return;
@@ -174,15 +177,15 @@ public class GameActivity extends Activity {
 
                 else if(b.getId() == b4.getId()) {
                     if(pos.equals("p")) {
-                        final Toast toast = Toast.makeText(this, "Für Präpositionen ist diese Funktion nicht verfügbar!", Toast.LENGTH_LONG);
+                        Toast toast = Toast.makeText(this, R.string.prep_not_available, Toast.LENGTH_LONG);
                         toast.setGravity(Gravity.CENTER, 0, 0);
                         toast.show();
                     }
                     else{
                         markedWords.add(currentSentence.token);
                         app.setMarkedWords(markedWords);
-                        Log.i(TAG, currentSentence.token + " gemerkt");
-                        final Toast toast = Toast.makeText(this, currentSentence.token + " auf die Wortliste gesetzt.", Toast.LENGTH_SHORT);
+                        Log.i(TAG, currentSentence.token + " marked");
+                        Toast toast = Toast.makeText(this, currentSentence.token + getString(R.string.added_to_wordlist), Toast.LENGTH_SHORT);
                         toast.setGravity(Gravity.CENTER, 0, 0);
                         toast.show();
                     }
@@ -204,12 +207,12 @@ public class GameActivity extends Activity {
             }
         }
         else {
-            final String clicked = b.getText().toString();
+            String clicked = b.getText().toString();
             if(clicked.equals(currentSentence.token)) {
                 solved = true;
                 right++;
                 Log.i(TAG, "right: " + right);
-                final Toast toast = Toast.makeText(this, currentSentence.token + " ist richtig!", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(this, currentSentence.token + getString(R.string.correct), Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show();
                 wrongButtons.clear();
@@ -221,7 +224,7 @@ public class GameActivity extends Activity {
                 if(!wrongButtons.contains(b)) {
                     wrong++;
                     b.setBackgroundColor(getResources().getColor(R.color.apple));
-                    final Toast toast = Toast.makeText(this, clicked + " ist falsch!", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(this, clicked + getString(R.string.incorrect), Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.CENTER, 0, 0);
                     toast.show();
                     wrongButtons.add(b);
@@ -233,45 +236,44 @@ public class GameActivity extends Activity {
 
     private void handleFinalChoice(View v) {
 
-        final Button b = (Button) v;
+        Button b = (Button) v;
 
         // Abbrechen
         if(b.getId() == b1.getId()) {
 
-            final Intent i = new Intent(this, WordgapMainMenuActivity.class);
+            Intent i = new Intent(this, WordgapMainMenuActivity.class);
             i.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             startActivity(i);
         }
         else if(b.getId() == b2.getId()) {
 
-                final StringBuilder sb = new StringBuilder();
-                for(int i = 0; i < ex.size(); i++) {
-                    final Sent s = ex.get(i);
+                StringBuilder sb = new StringBuilder();
+                for(int i = 0; i < this.ex.size(); i++) {
+                    Sent s = ex.get(i);
                     sb.append(s.toString());
                     sb.append("\n\n");
                 }
-                final Intent sendIntent = new Intent();
+                Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
                 sendIntent.putExtra(Intent.EXTRA_TEXT, sb.toString());
                 sendIntent.setType("text/plain");
-                startActivity(Intent.createChooser(sendIntent, "Wähle eine App aus, an die du " +
-                        "die Übung senden möchtest:"));
+                startActivity(Intent.createChooser(sendIntent, getString(R.string.choose_app_exercise)));
 
         }
         else if(b.getId() == b3.getId()) {
             Log.i(TAG, markedWords.toString());
-            Log.i(TAG, markedWords.size() + " Wörter gemerkt");
+            Log.i(TAG, markedWords.size() + " words on word list");
             if(markedWords.size() == 0) {
                 showDialog(DIALOG_NO_WORDS);
             }
             else {
                 app.setMarkedWords(markedWords);
-                final Intent i = new Intent(this, MarkedWordsListActivity.class);
+                Intent i = new Intent(this, MarkedWordsListActivity.class);
                 startActivity(i);
             }
         }
         else if(b.getId() == b4.getId()) {
-            moveTaskToBack(true);
+            this.moveTaskToBack(true);
         }
     }
 
@@ -279,54 +281,54 @@ public class GameActivity extends Activity {
 
         greenButtons();
         end = true;
-        final int percent = (int) ((float) right / (float) (right + wrong) * 100);
-        String text = "Du hast " + right + " von " + (right + wrong) +
-                " Versuchen richtig beantwortet!<br><br>Das sind <b>" + percent + "</b> Prozent.<br><br>";
+        int percent = (int) (((float) right / (float) (right + wrong)) * 100);
+        String text = right + " of " + (right + wrong) +
+                " attempts were correct.<br><br>That is <b>" + percent + "</b> " + getString(R.string.percent) + ".<br><br>";
         int totalRight = prefs.getInt("totalRight", 0);
         int totalWrong = prefs.getInt("totalWrong", 0);
         if(totalRight > 0 || totalWrong > 0) {
-            final int totalPercentOld = (int) ((float) totalRight / (float) (totalRight + totalWrong) * 100);
-            final int totalPercentNew = (int) ((float) (totalRight + right) / (float) (totalRight + right + totalWrong + wrong) * 100);
+            int totalPercentOld = (int) (((float) totalRight / (float) (totalRight + totalWrong)) * 100);
+            int totalPercentNew = (int) (((float) (totalRight + right) / (float) (totalRight + right + totalWrong + wrong)) * 100);
             if(totalPercentOld < totalPercentNew) {
-                text += "Deine Gesamtwertung hat sich um " + (totalPercentNew - totalPercentOld) + " Prozent " +
-                        " auf <b>" + totalPercentNew + "</b> Prozent verbessert!";
+                text += getString(R.string.total_score) + " increased by " + (totalPercentNew - totalPercentOld) + " " + getString(R.string.percent) +
+                        " to <b>" + totalPercentNew + "</b> " + getString(R.string.percent) + "!";
             }
             else if(totalPercentOld > totalPercentNew) {
-                text += "Deine Gesamtwertung hat sich um " + (totalPercentOld - totalPercentNew) + " Prozent " +
-                        " verschlechtert und beträgt jetzt <b>" + totalPercentNew + "</b> Prozent.";
+                text += getString(R.string.total_score) + " decreased by " + (totalPercentOld - totalPercentNew)  + " " + getString(R.string.percent)  +
+                        " to <b>" + totalPercentNew + "</b> " + getString(R.string.percent) + ".";
             }
             else {
-                text += "Deine Gesamtwertung bleibt bei <b>" + totalPercentNew + "</b> Prozent";
+                text += getString(R.string.total_score) + " remains at <b>" + totalPercentNew + "</b> " + getString(R.string.percent) + ".";
             }
         }
         // update prefs
         totalRight += right;
         totalWrong += wrong;
-        final SharedPreferences.Editor editor = prefs.edit();
+        SharedPreferences.Editor editor = prefs.edit();
         editor.putInt("totalRight", totalRight);
         editor.putInt("totalWrong", totalWrong);
         editor.commit();
 
         textView.setText(Html.fromHtml(text));
-        b1.setText("Neue Übung");
-        b2.setText("Export");
-        b3.setText("Wortliste");
-        b4.setText("Beenden");
+        b1.setText(R.string.new_);
+        b2.setText(R.string.export);
+        b3.setText(R.string.word_list);
+        b4.setText(R.string.quit);
     }
 
     @Override
     protected Dialog onCreateDialog(int id) {
 
-        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
         switch(id) {
             case DIALOG_NO_WORDS:
-                builder.setMessage("Keine gemerkten Wörter vorhanden");
+                builder.setMessage(R.string.no_words_added_to_wordlist);
                 builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
                         dialog.dismiss();
-                        final Intent i = new Intent(thisActivity, WordgapMainMenuActivity.class);
+                        Intent i = new Intent(thisActivity, WordgapMainMenuActivity.class);
                         i.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                         startActivity(i);
                     }
@@ -342,7 +344,7 @@ public class GameActivity extends Activity {
 
         super.onRestart();
         Log.i(TAG, "onRestart");
-        final Intent i = new Intent(this, WordgapMainMenuActivity.class);
+        Intent i = new Intent(this, WordgapMainMenuActivity.class);
         i.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(i);
     }
@@ -358,21 +360,21 @@ public class GameActivity extends Activity {
     public void onBackPressed() {
 
         if (backPressedOnce) {
-            Log.i(TAG, "Übung durch Back-Key abgebrochen");
+            Log.i(TAG, "Exercise aborted with Back-Key");
             handleFinalChoice(b1);
         } else {
             backPressedOnce = true;
-            final Toast toast = Toast
-                    .makeText(this, "Erneut drücken um abzubrechen", Toast.LENGTH_SHORT);
+            Toast toast = Toast
+                    .makeText(this, R.string.press_again, Toast.LENGTH_SHORT);
             toast.show();
 
-            final CountDownTimer countdownTimer = new CountDownTimer(2000,2000) {
+            CountDownTimer countdownTimer = new CountDownTimer(2000,2000) {
 
                 @Override
                 public void onFinish() {
 
                     backPressedOnce = false;
-                    Log.i(TAG, "Timer abgelaufen, backPressedOnce wieder false");
+                    Log.i(TAG, "Timer ended, backPressedOnce false again");
 
                 }
 

@@ -13,74 +13,80 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-
+import android.util.Patterns;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-
-
+import java.util.regex.Matcher;
 
 /**
  * @author: Susanne Knoop
+ * <p/>
+ * This activity will be initiated when the user clicks "Share webpage" -> "WordGap" in a browser.
+ * Loads the URL content, parses the HTML with JSoup and creates a new exercise from the website's text.
+ * 
  */
-public class NewExActivity extends Activity {
-    private static final String TAG = "wordgap - NewExActivity";
-    private static Activity thisActivity = null;
+public class WebExActivity extends Activity {
+    private static final String TAG = "wordgap - WebExActivity";
+    private String address;
+    private String subject;
     private ProgressDialog progress;
-    private LoadExTask task;
-    private ServerCommunicator sc;
-    private IOException io;
-    private String title;
-    private String text;
-    private String pos;
     private WordgapApplication app;
+    private LoadPageTask task;
+    private String text;
+    private Activity thisActivity;
+    ServerCommunicator sc;
     private static final int DIALOG_POS = 0;
+    private String pos;
     private static final int DIALOG_NO_NETWORK = 1;
     private static final int DIALOG_NO_TEXT = 2;
     private static final int DIALOG_NO_SERVER = 3;
+    private IOException io;
+    private IllegalArgumentException iae;
+    private String title;
+    private static final int DIALOG_NO_VALID_URL = 4;
     private SharedPreferences prefs;
     private String ipaddress;
-
-    private ArrayList<Sent> ex;
 
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        // get URL and title of the webpage that was submitted with the Intent
+        Intent intent = getIntent();
         app = (WordgapApplication) getApplication();
-        task = new LoadExTask();
-        progress = new ProgressDialog(this);
+        task = new LoadPageTask();
         prefs = getSharedPreferences(getString(R.string.wordgap), MODE_PRIVATE);
         ipaddress = prefs.getString(getString(R.string.ip), getString(R.string.default_ip));
         this.sc = new ServerCommunicator(ipaddress);
-        sc = new ServerCommunicator(ipaddress);
-        title = app.getTitle();
-        text = app.getText();
-        // Log gibt nur die ersten Sätze aus
-        //System.out.println(text);
+        if(savedInstanceState == null && intent != null) {
+            if(intent.getAction().equals(Intent.ACTION_SEND)) {
+                // Address of the URL
+                this.address = intent.getStringExtra(Intent.EXTRA_TEXT);
+                Log.i(TAG, "address " + address);
+                // title of the URL
+                this.subject = intent.getStringExtra(Intent.EXTRA_SUBJECT);
+                Log.i(TAG, "subject  " + subject);
+            }
+        }
     }
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
 
         super.onPostCreate(savedInstanceState);
+        progress = new ProgressDialog(this);
         thisActivity = this;
-        if(text.split(" ").length < 300) {
-            showDialog(DIALOG_NO_TEXT);
+        Matcher matcher = Patterns.WEB_URL.matcher(address);
+        if(matcher.find()) {
+            showDialog(DIALOG_POS);
         }
-        showDialog(DIALOG_POS);
-    }
-
-    // von Stackoverflow
-    public boolean isOnline() {
-
-        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo netInfo = cm.getActiveNetworkInfo();
-        if(netInfo != null && netInfo.isConnectedOrConnecting()) {
-            return true;
+        else {
+            showDialog(DIALOG_NO_VALID_URL);
         }
-        return false;
     }
 
     @Override
@@ -89,6 +95,7 @@ public class NewExActivity extends Activity {
         super.onPause();
         Log.i(TAG, "onPause");
         // verhindert Absturz, wenn das Handy gedreht wird
+        // prevents crashing when phone is turned 
         if(progress.isShowing()) {
             progress.dismiss();
         }
@@ -98,17 +105,19 @@ public class NewExActivity extends Activity {
     protected Dialog onCreateDialog(int id) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(getString(R.string.error));
         switch(id) {
             case DIALOG_POS:
-                builder.setTitle(R.string.choose_pos);
+                builder.setTitle(getString(R.string.choose_pos));
                 String[] names = new String[4];
                 names[0] = getString(R.string.verbs);
                 names[1] = getString(R.string.nouns);
                 names[2] = getString(R.string.adjectives);
                 names[3] = getString(R.string.prepositions);
-                // nur zu Testzwecken!
-                builder.setCancelable(true);
-                // builder.setCancelable(false);
+
+                //builder.setCancelable(true);
+                // will crash otherwise
+                builder.setCancelable(false);
                 builder.setItems(names, new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int which) {
@@ -127,112 +136,134 @@ public class NewExActivity extends Activity {
                             pos = "p";
                         }
                         dialog.dismiss();
-                        if(text != "") {
-                            if(!isOnline()) {
-                                showDialog(DIALOG_NO_NETWORK);
-                            }
-                            // wenn Netzwerkzugang vorhanden:
-                            else {
-                                task.execute();
-                            }
+                        if(!isOnline()) {
+                            showDialog(DIALOG_NO_NETWORK);
                         }
+                        // wenn Netzwerkzugang vorhanden:
                         else {
-                            showDialog(DIALOG_NO_TEXT);
+                            task.execute();
                         }
                     }
                 });
                 return builder.show();
             case DIALOG_NO_NETWORK:
-                builder.setTitle(R.string.error);
-                builder.setMessage(R.string.network_deactivated);
+                builder.setMessage(getString(R.string.network_deactivated));
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-                        Intent i = new Intent(thisActivity, WordgapMainMenuActivity.class);
-                        startActivity(i);
+                        moveTaskToBack(true);
                     }
                 });
                 return builder.show();
             case DIALOG_NO_TEXT:
-                builder.setTitle(R.string.error);
                 builder.setMessage(R.string.error_text);
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-                        Intent i = new Intent(thisActivity, WordgapMainMenuActivity.class);
-                        startActivity(i);
+                        moveTaskToBack(true);
                     }
                 });
                 return builder.show();
             case DIALOG_NO_SERVER:
-                builder.setTitle(R.string.error);
                 builder.setMessage(R.string.error_server);
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-                        Intent i = new Intent(thisActivity, WordgapMainMenuActivity.class);
-                        startActivity(i);
+                        moveTaskToBack(true);
                     }
                 });
-                return  builder.show();
+                return builder.show();
+
+            case DIALOG_NO_VALID_URL:
+                builder.setMessage(R.string.error_url);
+                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        moveTaskToBack(true);
+
+                    }
+                });
+                return builder.show();
         }
         return null;
     }
 
-    protected class LoadExTask extends AsyncTask<String, Void, ArrayList<Sent>> {
+    // geklaut von Stackoverflow
+    public boolean isOnline() {
+
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        if(netInfo != null && netInfo.isConnectedOrConnecting()) {
+            return true;
+        }
+        return false;
+    }
+
+    protected class LoadPageTask extends AsyncTask<String, Void, ArrayList<Sent>> {
 
         @Override
         protected void onPreExecute() {
 
             progress.setIndeterminate(true);
-            progress.setTitle(R.string.creating_ex);
+            progress.setTitle(getString(R.string.loading_webpage));
             progress.setMessage(getString(R.string.connecting_to_server));
-            progress.setCancelable(true);
-            progress.setOnCancelListener(new DialogInterface.OnCancelListener() {
-                @Override
-                public void onCancel(DialogInterface dialog) {
-
-                    dialog.dismiss();
-                    Intent i = new Intent(thisActivity, WordgapMainMenuActivity.class);
-                    startActivity(i);
-                }
-            });
             progress.show();
             Log.i(TAG, "show Progress Bar");
         }
 
         @Override
         protected ArrayList<Sent> doInBackground(String... params) {
-
+            // Adresse aufrufen, html laden
+            Document doc = null;
+            try {
+                doc = Jsoup.connect(address).get();
+            }
+            catch(IllegalArgumentException e){
+                e.printStackTrace();
+                Log.e(TAG, e.getMessage());
+                iae = e;
+                return  null;
+            }
+            catch(IOException e) {
+                e.printStackTrace();
+                Log.e(TAG, e.getMessage());
+                io = e;
+                return null;
+            }
             String serverResponse = null;
+            // html parsen
+            text = doc.body().text();
+            title = subject;
+            app.setTitle(subject);
+            app.setText(text);
+            ArrayList<Sent> ex = new ArrayList<Sent>();
             try {
                 serverResponse = sc.getJSONEx(text, pos);
             }
             catch(IOException e) {
                 io = e;
                 e.printStackTrace();
-                Log.e(TAG, e.getMessage());
                 return null;
             }
-            ArrayList<Sent> ex;
             ex = sc.parseJSONEx(serverResponse);
             String filename = title + "_" + pos + ".json";
             FileOutputStream fos = null;
             try {
-                fos = openFileOutput(filename, Context.MODE_APPEND);
+                fos = openFileOutput(filename, Context.MODE_PRIVATE);
             }
             catch(FileNotFoundException e) {
                 e.printStackTrace();
             }
             try {
                 fos.write(serverResponse.getBytes());
-                Log.i(TAG, "File " + filename + " saved in internal memory.");
+                Log.i(TAG, "File " + filename + " saved in internal memory");
             }
             catch(IOException e) {
-                Log.e(TAG, "Could not save file!");
+                Log.e(TAG, "Could not save exercise.");
                 e.printStackTrace();
             }
             finally {
@@ -240,6 +271,7 @@ public class NewExActivity extends Activity {
                     fos.close();
                 }
                 catch(IOException e) {
+                    Log.e(TAG, "Could not save exercise.");
                     e.printStackTrace();
                 }
             }
@@ -250,17 +282,20 @@ public class NewExActivity extends Activity {
         protected void onPostExecute(ArrayList<Sent> ex) {
 
             progress.dismiss();
-            if(io == null) {
-                app.setText(text);
-                app.setTitle(title);
-                app.setPos(pos);
+            if(io == null && ex != null) {
                 app.setEx(ex);
+                app.setPos(pos);
                 Intent i = new Intent(thisActivity, GameActivity.class);
                 startActivity(i);
             }
-            else {
+
+            else if (iae != null){
+                showDialog(DIALOG_NO_VALID_URL);
+            }
+            else if (io != null){
                 showDialog(DIALOG_NO_SERVER);
             }
+
         }
     }
 }
