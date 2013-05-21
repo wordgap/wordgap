@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content">
+    <TextView android:layout_height="wrap_content"
+              android:layout_width="fill_parent"
+              android:minHeight="?android:attr/listPreferredItemHeight"
+              android:id="@+id/listheader"
+              android:background="@color/hellblau"
+              android:textColor="@color/apple"
+
+              android:text="Übung öffnen"
+            ></TextView>
+
+
+</LinearLayout>

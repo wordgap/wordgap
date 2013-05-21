@@ -2,13 +2,19 @@
 
 import logging
 import os
+import django
+
+# calculated paths for django and the site
+# used as starting points for various other paths
+DJANGO_ROOT = os.path.dirname(os.path.realpath(django.__file__))
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
-    ("sajin", "susanne.knoop@gmail.com")
+    ("Susanne Knoop", "susanne.knoop@gmail.com")
 )
 
 MANAGERS = ADMINS
@@ -49,7 +55,7 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = '/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/site_media/'
+MEDIA_ROOT = '/home/sajin/Uni/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/site_media/'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -72,7 +78,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    '/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/static/',
+    '/home/sajin/Uni/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/static/',
 )
 
 # List of finder classes that know how to find static files in
@@ -113,8 +119,10 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap/templates",
-    "/home/sajin/Thesis/wordgap/wordgap-server/django/wordgap/wordgap"
+
+    #"/home/sajin/Uni/Thesis/wordgap/wordgap-server/django/wordgap/wordgap"
+
+    os.path.join(SITE_ROOT, 'templates'),
 )
 
 INSTALLED_APPS = (
