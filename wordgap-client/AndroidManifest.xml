@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="susanne.wordgap"
+          package="org.wordgap"
           android:versionCode="1"
           android:versionName="1.0" >
 
     <uses-sdk android:minSdkVersion="10"/>
-    <application android:label="@string/app_name" android:name=".WordgapApplication"
+    <application android:label="@string/app_name" android:name="org.wordgap.WordgapApplication"
 
             >
 
-        <activity android:name=".WordgapMainMenuActivity"
+        <activity android:name="org.wordgap.WordgapMainMenuActivity"
                   android:screenOrientation="portrait"
                   android:theme="@android:style/Theme.NoTitleBar"
                 >
@@ -19,27 +19,27 @@
             </intent-filter>
 
                 </activity>
-        <activity android:name=".NewExActivity"
+        <activity android:name="org.wordgap.NewExActivity"
                   android:screenOrientation="portrait"
                   android:theme="@android:style/Theme.NoTitleBar"
                   android:configChanges="orientation"
                 />
-        <activity android:name=".OpenExActivity"
+        <activity android:name="org.wordgap.OpenExActivity"
                   android:screenOrientation="portrait"
                   android:theme="@android:style/Theme.NoTitleBar"
                   android:configChanges="orientation"
                 />
-        <activity android:name=".VocabListActivity"
+        <activity android:name="org.wordgap.VocabListActivity"
                   android:screenOrientation="portrait"
                   android:theme="@android:style/Theme.NoTitleBar"
                   android:configChanges="orientation"
                 />
-        <activity android:name=".OpenFileActivity"
+        <activity android:name="org.wordgap.OpenFileActivity"
                   android:screenOrientation="portrait"
                   android:theme="@android:style/Theme.NoTitleBar"
                   android:configChanges="orientation"
                 />
-        <activity android:name=".WebExActivity">
+        <activity android:name="org.wordgap.WebExActivity">
 <!--            <intent-filter>
                 <action android:name="android.intent.action.SEND" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -59,21 +59,21 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".GameActivity"
+        <activity android:name="org.wordgap.GameActivity"
                   android:screenOrientation="portrait"
                   android:theme="@android:style/Theme.NoTitleBar"
                   android:configChanges="orientation"/>
-        <activity android:name=".DecisionListActivity"
+        <activity android:name="org.wordgap.DecisionListActivity"
                   android:screenOrientation="portrait"
                   android:theme="@android:style/Theme.NoTitleBar"
                   android:configChanges="orientation"/>
-        <activity android:name=".WordListActivity"
+        <activity android:name="org.wordgap.WordListActivity"
                   android:screenOrientation="portrait"
                   android:theme="@android:style/Theme.NoTitleBar"
                   android:configChanges="orientation"
 
                 />
-        <activity android:name=".MarkedWordsListActivity"
+        <activity android:name="org.wordgap.MarkedWordsListActivity"
                   android:screenOrientation="portrait"
                   android:theme="@android:style/Theme.NoTitleBar"
                   android:configChanges="orientation"
